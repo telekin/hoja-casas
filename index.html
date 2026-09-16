@@ -1,0 +1,1481 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Ladera Oriental Envigado</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --paper:#EEF1EB; --surface:#F8FAF6; --raised:#FFFFFF;
+  --ink:#141D18; --body:#2C3A32; --muted:#5E6E64; --faint:#8A9890;
+  --line:#CDD5C9; --line-soft:#DFE5DB;
+  --ok:#2F6B4B; --ok-bg:#DFEBE2;
+  --warn:#9C6813; --warn-bg:#F2E7CE;
+  --ind:#4F6675; --ind-bg:#DEE6EB;
+  --alert:#9C3626; --alert-bg:#F4DED9;
+  --shadow:0 1px 2px rgba(20,29,24,.05), 0 8px 24px -12px rgba(20,29,24,.18);
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1512; --surface:#161E1A; --raised:#1C2621;
+    --ink:#E7ECE5; --body:#C6D0C8; --muted:#96A49B; --faint:#6F7E75;
+    --line:#2A352E; --line-soft:#212B25;
+    --ok:#79C79A; --ok-bg:#1B3227;
+    --warn:#DFA84F; --warn-bg:#33280F;
+    --ind:#93AEBE; --ind-bg:#1A272E;
+    --alert:#E58370; --alert-bg:#331A15;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1512; --surface:#161E1A; --raised:#1C2621;
+  --ink:#E7ECE5; --body:#C6D0C8; --muted:#96A49B; --faint:#6F7E75;
+  --line:#2A352E; --line-soft:#212B25;
+  --ok:#79C79A; --ok-bg:#1B3227;
+  --warn:#DFA84F; --warn-bg:#33280F;
+  --ind:#93AEBE; --ind-bg:#1A272E;
+  --alert:#E58370; --alert-bg:#331A15;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--body);
+  font-family:var(--serif);font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--disp);color:var(--ink);text-wrap:balance;margin:0;line-height:1.12}
+a{color:var(--ok);text-underline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+.narrow{max-width:720px}
+
+/* ---------- eyebrow / labels ---------- */
+.eyebrow{font-family:var(--disp);font-variation-settings:"wdth" 112;
+  font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 10px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:var(--surface)}
+#contour{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+.hero-in{position:relative;padding:58px 0 44px}
+.hero h1{font-size:clamp(38px,6.2vw,68px);font-weight:800;
+  font-variation-settings:"wdth" 88;letter-spacing:-.02em;max-width:15ch}
+.hero .sub{font-size:19px;max-width:60ch;margin:18px 0 0;color:var(--body)}
+.stamp{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);
+  font-size:11.5px;letter-spacing:.05em;color:var(--muted);
+  border:1px solid var(--line);border-radius:2px;padding:5px 10px;background:var(--raised)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:34px;
+  border-top:1px solid var(--line);border-left:1px solid var(--line);
+  background:var(--raised);width:fit-content;max-width:100%}
+.hstat{padding:14px 22px 13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:132px}
+.hstat b{display:block;font-family:var(--mono);font-size:25px;font-weight:500;color:var(--ink);line-height:1.1}
+.hstat span{display:block;font-family:var(--disp);font-size:10.5px;font-weight:600;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+
+/* ---------- sections ---------- */
+section{padding:56px 0;border-bottom:1px solid var(--line-soft)}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.sec-num{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.08em;
+  border:1px solid var(--line);border-radius:2px;padding:2px 7px;flex:none}
+h2{font-size:clamp(25px,3.2vw,34px);font-weight:700;font-variation-settings:"wdth" 92;letter-spacing:-.012em}
+.lede{max-width:66ch;margin:14px 0 0;color:var(--muted);font-size:16px}
+
+/* ---------- chips ---------- */
+.chip{display:inline-block;font-family:var(--disp);font-size:10.5px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap}
+.c-ok{background:var(--ok-bg);color:var(--ok)}
+.c-warn{background:var(--warn-bg);color:var(--warn)}
+.c-ind{background:var(--ind-bg);color:var(--ind)}
+.c-alert{background:var(--alert-bg);color:var(--alert)}
+.c-plain{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+/* ---------- toolbar ---------- */
+.toolbar{position:sticky;top:0;z-index:20;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:11px 0;margin-bottom:0}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tbtn{font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;padding:6px 11px;border:1px solid var(--line);
+  background:var(--raised);color:var(--muted);border-radius:2px;cursor:pointer;
+  transition:background .13s,color .13s,border-color .13s}
+.tbtn:hover{border-color:var(--muted);color:var(--ink)}
+.tbtn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tbtn:focus-visible{outline:2px solid var(--ok);outline-offset:2px}
+.tsep{width:1px;height:20px;background:var(--line);margin:0 4px}
+.tlabel{font-family:var(--disp);font-size:10.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint);margin-right:2px}
+#count{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:auto}
+
+/* ---------- table ---------- */
+.tscroll{overflow-x:auto;border:1px solid var(--line);background:var(--raised);margin-top:22px}
+table{border-collapse:collapse;width:100%;min-width:1500px;font-size:13.5px}
+thead th{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);text-align:left;padding:11px 11px;
+  border-bottom:1.5px solid var(--line);white-space:nowrap;background:var(--surface)}
+thead th.sortable{cursor:pointer;user-select:none}
+thead th.sortable:hover{color:var(--ink)}
+thead th .arrow{opacity:.35;font-size:9px}
+thead th[aria-sort] .arrow{opacity:1;color:var(--ok)}
+tbody td{padding:10px 11px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tbody tr:hover{background:var(--surface)}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+td.id{font-family:var(--mono);font-size:12px;color:var(--faint);white-space:nowrap}
+td.id .bandtag{display:block;margin-top:5px;font-family:var(--disp);font-size:9px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;padding:2px 5px;border-radius:2px;text-align:center}
+td.id .bandtag.obj{background:var(--ok-bg);color:var(--ok)}
+td.id .bandtag.neg{background:var(--warn-bg);color:var(--warn)}
+td.id .bandtag.alto{background:var(--alert-bg);color:var(--alert)}
+td.id .orig{display:block;margin-top:4px;font-family:var(--disp);font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);text-align:center}
+td.name{min-width:250px;color:var(--ink);font-weight:600;font-family:var(--disp);font-size:13px;line-height:1.35}
+td.name small{display:block;font-family:var(--serif);font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.45}
+a.ver{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-family:var(--mono);
+  font-size:11.5px;font-weight:500;color:var(--ok);text-decoration:none;
+  border:1px solid var(--ok);border-radius:2px;padding:3px 8px;white-space:nowrap;
+  transition:background .13s,color .13s}
+a.ver:hover{background:var(--ok);color:var(--paper)}
+a.ver:focus-visible{outline:2px solid var(--ok);outline-offset:2px}
+td.ev{min-width:290px;font-size:12.5px;line-height:1.5;color:var(--muted)}
+td.ev em{color:var(--body);font-style:italic}
+.src a{font-family:var(--mono);font-size:11.5px;white-space:nowrap}
+.nr{color:var(--faint);font-style:italic;font-family:var(--serif);font-size:12.5px}
+.band{font-family:var(--disp);font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);background:var(--surface);
+  padding:9px 11px;border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+
+/* ---------- fichas ---------- */
+.fichas{display:grid;gap:0;margin-top:26px;border-top:1px solid var(--line)}
+.ficha{border-bottom:1px solid var(--line);padding:26px 0;display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:34px}
+.f-head{display:flex;align-items:baseline;gap:11px;margin-bottom:4px}
+.f-rank{font-family:var(--mono);font-size:12px;color:var(--paper);background:var(--ink);
+  padding:2px 7px;border-radius:2px;flex:none}
+.ficha h3{font-size:21px;font-weight:700;font-variation-settings:"wdth" 92;letter-spacing:-.01em}
+.f-meta{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:7px 0 14px;
+  display:flex;flex-wrap:wrap;gap:4px 14px}
+.f-meta b{color:var(--ink);font-weight:500}
+.ficha p{margin:0 0 11px;font-size:15px}
+.ficha p:last-child{margin-bottom:0}
+.f-label{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--faint);display:block;margin:16px 0 5px}
+.f-label:first-child{margin-top:0}
+.quote{border-left:2px solid var(--ok);padding:2px 0 2px 13px;font-style:italic;color:var(--body);font-size:14.5px}
+.f-side{background:var(--raised);border:1px solid var(--line);padding:17px 19px;align-self:start}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px;align-items:baseline}
+.kv dt{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--faint);white-space:nowrap;padding-top:3px}
+.kv dd{margin:0;font-family:var(--mono);font-size:13px;color:var(--ink);font-variant-numeric:tabular-nums}
+.kv dd.txt{font-family:var(--serif);font-size:14px;color:var(--body)}
+.gauge{margin-top:15px;padding-top:14px;border-top:1px solid var(--line-soft)}
+.gauge-row{display:flex;justify-content:space-between;font-size:12px;font-family:var(--mono);color:var(--muted);margin-bottom:5px}
+.gauge-bar{height:5px;background:var(--line-soft);position:relative;border-radius:3px;overflow:hidden}
+.gauge-fill{position:absolute;top:0;bottom:0;background:var(--ok);border-radius:3px}
+.gauge-fill.over{background:var(--warn)}
+.gauge-mark{position:absolute;top:-3px;bottom:-3px;width:1.5px;background:var(--ink)}
+
+/* ---------- chart ---------- */
+.chart{margin-top:26px;border:1px solid var(--line);background:var(--raised);padding:22px 24px}
+.crow{display:grid;grid-template-columns:190px 1fr 118px;gap:16px;align-items:center;padding:8px 0}
+.crow + .crow{border-top:1px solid var(--line-soft)}
+.cname{font-family:var(--disp);font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.25}
+.cname small{display:block;font-family:var(--mono);font-weight:400;font-size:10.5px;color:var(--faint);margin-top:2px}
+.ctrack{height:20px;background:var(--line-soft);position:relative;border-radius:2px}
+.cband{position:absolute;top:0;bottom:0;background:var(--ok-bg);border-radius:2px}
+.cmed{position:absolute;top:-3px;bottom:-3px;width:3px;background:var(--ok);border-radius:2px}
+.cval{font-family:var(--mono);font-size:13px;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.cval small{display:block;font-size:10.5px;color:var(--faint)}
+.caxis{display:grid;grid-template-columns:190px 1fr 118px;gap:16px;margin-top:10px;
+  padding-top:9px;border-top:1px solid var(--line)}
+.caxis .ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+
+/* ---------- brokers ---------- */
+.brokers{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:0;
+  margin-top:24px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.bk{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 19px;background:var(--raised)}
+.bk h4{font-size:15.5px;font-weight:700;font-variation-settings:"wdth" 96;margin-bottom:3px}
+.bk .tel{font-family:var(--mono);font-size:14px;color:var(--ok);display:block;margin:7px 0 2px;font-weight:500}
+.bk .det{font-size:13px;color:var(--muted);line-height:1.5;margin-top:7px}
+.bk .ev{font-size:12px;color:var(--faint);margin-top:9px;padding-top:9px;border-top:1px solid var(--line-soft)}
+
+/* ---------- alerts ---------- */
+.alerts{margin-top:24px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.al{display:grid;grid-template-columns:5px 1fr;gap:0;border-bottom:1px solid var(--line)}
+.al-stripe{background:var(--alert)}
+.al[data-sev="med"] .al-stripe{background:var(--warn)}
+.al[data-sev="info"] .al-stripe{background:var(--ind)}
+.al-body{padding:18px 0 18px 20px}
+.al h4{font-size:16.5px;font-weight:700;font-variation-settings:"wdth" 96;margin-bottom:6px}
+.al p{margin:0 0 8px;font-size:14.5px;max-width:78ch}
+.al p:last-child{margin-bottom:0}
+.al .src{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+
+/* ---------- misc ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:24px}
+.note{background:var(--surface);border:1px solid var(--line);padding:17px 20px;font-size:14.5px}
+.note h4{font-size:14px;font-weight:700;letter-spacing:.02em;margin-bottom:7px}
+ul.tight{margin:8px 0 0;padding-left:19px}
+ul.tight li{margin-bottom:7px;font-size:14.5px}
+ul.tight li::marker{color:var(--faint)}
+footer{padding:38px 0 54px;color:var(--faint);font-size:13px}
+footer p{max-width:80ch;margin:0 0 9px}
+
+
+/* ---------- tablero de control ---------- */
+.board-sec{background:var(--surface);border-bottom:1px solid var(--line);padding:38px 0 42px}
+.board-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.board-note{max-width:70ch;margin:12px 0 0;color:var(--muted);font-size:15px}
+.bstats{display:flex;flex-wrap:wrap;gap:0;margin-top:22px;border-top:1px solid var(--line);border-left:1px solid var(--line);width:fit-content;max-width:100%;background:var(--raised)}
+.bstat{padding:11px 18px 10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:104px;cursor:pointer;background:none;text-align:left;font:inherit}
+.bstat:hover{background:var(--surface)}
+.bstat b{display:block;font-family:var(--mono);font-size:21px;font-weight:500;color:var(--ink);line-height:1.1}
+.bstat span{display:block;font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.bstat[aria-pressed="true"]{background:var(--ink)}
+.bstat[aria-pressed="true"] b,.bstat[aria-pressed="true"] span{color:var(--paper)}
+
+.ro-note{margin-top:16px;font-size:13.5px;color:var(--warn);background:var(--warn-bg);border:1px solid var(--warn);padding:9px 12px;border-radius:2px;display:none}
+td.est{min-width:132px;position:sticky;left:0;background:var(--raised);z-index:2;border-right:1px solid var(--line)}
+tbody tr:hover td.est{background:var(--surface)}
+td.est select,td.est input[type=date]{font-family:var(--disp);font-size:11px;padding:4px 5px;border:1px solid var(--line);background:var(--raised);color:var(--ink);border-radius:2px;width:100%;box-sizing:border-box}
+td.est input[type=date]{margin-top:4px;font-family:var(--mono);font-size:10.5px}
+td.est select:focus,td.est input:focus,td.nota textarea:focus{outline:2px solid var(--ok);outline-offset:-1px}
+td.est .who{display:block;font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:4px;line-height:1.3}
+td.nota{min-width:230px}
+td.nota textarea{width:100%;box-sizing:border-box;font-family:var(--serif);font-size:12.5px;line-height:1.45;color:var(--body);background:var(--surface);border:1px solid var(--line-soft);border-radius:2px;padding:5px 6px;resize:vertical;min-height:44px}
+td.nota textarea:not(:placeholder-shown){background:var(--raised);border-color:var(--line)}
+thead th:first-child{position:sticky;left:0;z-index:3;background:var(--surface);border-right:1px solid var(--line)}
+@media (max-width:1000px){.cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.cols{grid-template-columns:1fr}}
+
+@media (max-width:880px){
+  .ficha{grid-template-columns:1fr;gap:20px}
+  .grid2{grid-template-columns:1fr;gap:24px}
+  .crow,.caxis{grid-template-columns:118px 1fr 92px;gap:10px}
+  thead th{position:static}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<div id="authbar" style="position:sticky;top:0;z-index:40;background:var(--ink);color:var(--paper);padding:8px 0;font-family:var(--disp);font-size:13px">
+  <div class="wrap" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <strong style="font-weight:700;letter-spacing:.04em">Hoja de control</strong>
+    <span id="authstate" style="opacity:.8">Conectando…</span>
+    <button id="btnin" style="margin-left:auto;font:inherit;font-weight:600;padding:6px 14px;border:0;border-radius:3px;background:var(--paper);color:var(--ink);cursor:pointer;display:none">Entrar con Google</button>
+    <button id="btnout" style="margin-left:auto;font:inherit;padding:6px 12px;border:1px solid rgba(255,255,255,.35);border-radius:3px;background:transparent;color:var(--paper);cursor:pointer;display:none">Salir</button>
+  </div>
+</div>
+<header class="hero">
+  <canvas id="contour" aria-hidden="true"></canvas>
+  <div class="wrap hero-in">
+    <span class="stamp">HOJA DE CONTROL VIVA · 59 PREDIOS · ACT. 16 SEP</span>
+    <h1>Casas con ladera al frente</h1>
+    <p class="sub">Inventario verificado de casas en venta en el corredor Escobero–Esmeraldal–Chocho, filtrado por un solo criterio duro: que el verde que se ve desde la ventana siga ahí en diez años. <strong>La tabla es la hoja de control:</strong> se marca el estado y se comenta ahí mismo, y lo que uno escriba el otro lo ve al instante.</p>
+    <div class="hero-stats">
+      <div class="hstat"><b>59</b><span>Predios en tabla</span></div>
+      <div class="hstat"><b>119</b><span>Fichas abiertas</span></div>
+      <div class="hstat"><b>0</b><span>Verde protegido</span></div>
+      <div class="hstat"><b>22</b><span>Corredores</span></div>
+      <div class="hstat"><b>12</b><span>Alertas</span></div>
+    </div>
+  </div>
+</header>
+
+
+<section class="board-sec" id="tablero">
+  <div class="wrap">
+    <div class="board-head"><span class="sec-num">★</span><h2>Hoja de control de Juan Felipe y Mayra</h2></div>
+    <p class="board-note">El estado y los comentarios se marcan <strong>en la tabla de abajo</strong>, en las dos primeras columnas: un selector de estado con fecha de cita, y una caja de comentarios que se guarda sola mientras escriben. <strong>Lo que uno escriba lo ve el otro al instante</strong>, en cualquier dispositivo. Los contadores filtran la tabla.</p>
+    <div class="bstats" id="bstats"></div>
+    <div class="ro-note" id="ronote">Solo lectura. Para marcar y comentar, entra con tu cuenta de Google en la barra de arriba — y esa cuenta tiene que estar en la lista de editores de la página.</div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="wrap tools">
+    <span class="tlabel">Banda</span>
+    <button class="tbtn" data-f="banda" data-v="obj" aria-pressed="false">≤ $2.200M</button>
+    <button class="tbtn" data-f="banda" data-v="neg" aria-pressed="false">Negociable</button>
+    <button class="tbtn" data-f="banda" data-v="alto" aria-pressed="false">Sobre banda</button>
+    <span class="tsep"></span>
+    <span class="tlabel">Origen</span>
+    <button class="tbtn" data-f="origen" data-v="b04" aria-pressed="false">Barrido 4 sep</button>
+    <button class="tbtn" data-f="origen" data-v="wa" aria-pressed="false">WhatsApp</button>
+    <button class="tbtn" data-f="origen" data-v="f13" aria-pressed="false">Barrido 13 sep</button>
+    <button class="tbtn" data-f="origen" data-v="f16" aria-pressed="false">Nuevas 16 sep</button>
+    <span class="tsep"></span>
+    <span class="tlabel">Antigüedad del aviso</span>
+    <button class="tbtn" data-f="edad" data-v="fresco" aria-pressed="false">≤ 3 meses</button>
+    <button class="tbtn" data-f="edad" data-v="medio" aria-pressed="false">3–6 meses</button>
+    <button class="tbtn" data-f="edad" data-v="viejo" aria-pressed="false">&gt; 6 meses</button>
+    <button class="tbtn" data-f="edad" data-v="nd" aria-pressed="false">Sin fecha</button>
+    <span class="tsep"></span>
+    <span class="tlabel">Zona</span>
+    <button class="tbtn" data-f="zona" data-v="core" aria-pressed="false">Núcleo</button>
+    <button class="tbtn" data-f="zona" data-v="ady" aria-pressed="false">Adyacente</button>
+    <button class="tbtn" data-f="zona" data-v="out" aria-pressed="false">Fuera de zona</button>
+    <span class="tsep"></span>
+    <span class="tlabel">Entorno</span>
+    <button class="tbtn" data-f="crit" data-v="a" aria-pressed="false">a · Colinda</button>
+    <button class="tbtn" data-f="crit" data-v="b" aria-pressed="false">b · Jardín 200m²+</button>
+    <button class="tbtn" data-f="crit" data-v="c" aria-pressed="false">c · Vista</button>
+    <span class="tsep"></span>
+    <button class="tbtn" id="reset">Limpiar</button>
+    <span id="count"></span>
+  </div>
+</div>
+
+<section id="update">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">00</span><h2>Actualización · 13 y 16 de septiembre</h2></div>
+    <p class="lede">Dos canales nuevos entraron al expediente: las dieciséis propiedades que llegaron por WhatsApp de Mayra y de cinco corredores, y un barrido nuevo de Fincaraíz sobre Envigado, Escobero y Esmeraldal. El inventario pasó de 32 a 48 predios y el podio cambió entero.</p>
+
+    <div class="grid2" style="margin-top:26px">
+      <div>
+        <span class="f-label">Lo que cambió el ranking</span>
+        <p><strong>Apareció la primera propiedad con verde defendible por norma.</strong> Un aviso de Loma del Escobero a $2.850M dice que la unidad tiene <em>quebrada</em> y senderos ecológicos propios, y que la casa <em>«tiene vista a hermosos bosques que se registra por todos los espacios»</em>. El retiro de quebrada es suelo de protección: no se puede construir en él. Es el único predio de los 48 con camino corto para pasar de <span class="chip c-ind">Indeterminado</span> a <span class="chip c-ok">Verde protegido</span>, y el único cuyo aviso ofrece <strong>recibir un inmueble de menor valor</strong> — lo que convierte los $650M de sobreprecio en una estructura de permuta y no en un descuento imposible.</p>
+        <p><strong>El Esmeraldal sí tenía producto.</strong> El barrido del 4 de septiembre lo había encontrado escaso y ningún corredor había mandado nada de ahí en dos meses. El barrido nuevo devolvió una casa de 210 m² con cuatro habitaciones, estudio y dos balcones con vista a reserva natural por <strong>$1.360M</strong>, $840M por debajo del techo. El aviso es sospechosamente escueto; averiguar qué le falta es la llamada más rentable de la lista.</p>
+        <p><strong>Benedictinos entró por la puerta de atrás.</strong> No estaba en la lista de sectores, pero es de donde salieron dos de las cuatro candidatas del canal WhatsApp, ambas con lote real (482 y 389 m²). Queda a unos 2 km del Escobero y merece estar en el encargo formal.</p>
+      </div>
+      <div>
+        <span class="f-label">Lo que enseñó el canal de WhatsApp</span>
+        <p><strong>Cinco corredores rotando el mismo inventario.</strong> De dieciséis propiedades recibidas, Los Balsos, Benedictinos, Las Santas y Transversal Intermedia llegaron por dos y hasta tres canales distintos el mismo día; Mayra y Laura Parra mandaron listas casi idénticas con una hora de diferencia. No es abundancia de oferta: es el mismo pool circulando, y confirma la alerta 08 sobre mandatos abiertos.</p>
+        <p><strong>Solo cinco de las dieciséis tienen cuatro alcobas reales</strong>, y de esas una sola acredita entorno. El cuello de botella nunca fue el presupuesto: es la cuarta alcoba con jardín. Diez se descartaron por zona o por tener tres alcobas; una (Cola del Zorro, $2.390M, 4 alcobas) <strong>ya fue dada de baja</strong> entre julio y septiembre.</p>
+        <p><strong>Un portal nuevo:</strong> casi todo lo que circula por WhatsApp en Medellín sale de <span class="mono">info.wasi.co</span>, el CRM que usan las inmobiliarias colombianas, y lo mejor del canal salió de <span class="mono">red.redinmobiliariamls.com</span>, un MLS que el barrido anterior no tocó. Ninguno de los dos aparecía en la cobertura del 4 de septiembre.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:26px">
+      <h4>Segunda corrida, con fechas: las dos recomendaciones principales quedaron datadas</h4>
+      <p>La fecha de publicación sí está en Fincaraíz, escondida en la ficha de detalle. Al abrirlas, dos datos cambian el orden de las llamadas:</p>
+      <ul class="tight">
+        <li><strong>La del Escobero con quebrada se publicó el 3 de junio de 2026 — hace 102 días</strong>, por Londoño &amp; Jaramillo. Queda fuera de la ventana de tres meses por diez días y cómodamente dentro de los seis. Es una oferta viva, no inventario muerto.</li>
+        <li><strong>La del Esmeraldal de $1.360M lleva 19 meses publicada</strong>: entró el 27 de enero de 2025. Eso reordena su lectura por completo — un precio 21% bajo la mediana que no se mueve en año y medio no es una ganga que nadie vio. Además su ficha marca «sobre vía principal», difícil de conciliar con la vista a reserva que promete. Baja al tercer puesto y la primera llamada es para confirmar que sigue en venta.</li>
+      </ul>
+      <p style="margin-bottom:0">La segunda corrida añadió además cuatro predios con cuatro o cinco alcobas que no habían salido: <strong>Chocho a $1.480M con 284 m²</strong>, <strong>Alto del Escobero a $1.950M con estudio y seis garajes</strong>, <strong>Altos del Escobero a $2.250M con casa de huéspedes independiente</strong> —que resuelve la oficina separada dentro del sector objetivo— y La Sebastiana a $2.390M.</p>
+    </div>
+
+    <div class="note" style="margin-top:20px">
+      <h4>La palabra que hay que buscar es «quebrada», no «zonas verdes»</h4>
+      <p style="margin:0">Es el aprendizaje operativo de esta actualización y cambia cómo se filtran los portales de aquí en adelante. <strong>«Zonas verdes» en un aviso casi siempre significa el jardín de la copropiedad</strong> — un bien común que una asamblea puede densificar. <strong>«Quebrada», «retiro» y «nacimiento» apuntan a suelo de protección declarado</strong>, que ni la asamblea ni el vecino pueden tocar. De los 48 predios del expediente, uno solo menciona quebrada. Búsquela por nombre en cada barrido siguiente: es el filtro que separa una vista prestada de una vista propia.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tabla">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Tabla maestra</h2></div>
+    <p class="lede">Ordenada por ajuste al encargo. Cada fila trae su <strong>enlace directo al aviso original</strong> junto al nombre — clic en «Ver aviso» y abre en pestaña nueva. Toda cifra proviene de la ficha de detalle que se fetcheó una por una; <span class="nr">no reportado</span> significa que el anunciante no diligenció el campo, no que el dato sea cero. Clic en los encabezados con flecha para reordenar. Cada fila indica ahora <strong>de qué canal viene</strong> —barrido del 4 de septiembre, WhatsApp, barrido del 13 o avisos nuevos del 16— y el filtro «Origen» de la barra superior aísla cada uno. La columna <strong>Publicado</strong> es ordenable y trae la antigüedad calculada al 16 de septiembre de 2026; el filtro <strong>«Antigüedad del aviso»</strong> aplica su regla de tres meses, con seis como tolerancia. <strong>Lea antes la alerta sobre republicación masiva:</strong> «hace 1 día» no siempre significa nuevo.</p>
+    <p class="lede" style="margin-top:10px"><span class="chip c-ok">Objetivo</span> es la banda hasta $2.200.000.000. <span class="chip c-warn">Negoc.</span> son los $2.200.000.000 a $2.400.000.000 que usted marcó como negociables: en estos sectores el precio de lista rara vez es el de cierre.</p>
+    <div class="tscroll">
+      <table id="master">
+        <thead><tr>
+          <th>Estado</th>
+          <th>Comentarios</th>
+          <th>ID</th>
+          <th>Predio</th>
+          <th>Sector</th>
+          <th class="sortable" data-k="precio">Precio <span class="arrow">▼</span></th>
+          <th class="sortable" data-k="ppm">$/m² <span class="arrow">▼</span></th>
+          <th class="sortable" data-k="constr">Constr. <span class="arrow">▼</span></th>
+          <th class="sortable" data-k="lote">Lote <span class="arrow">▼</span></th>
+          <th class="sortable" data-k="verde">Verde priv. <span class="arrow">▼</span></th>
+          <th>Hab</th><th>Baños</th><th>Parq</th>
+          <th>Entorno</th>
+          <th>Clasif. urbanística</th>
+          <th class="sortable" data-k="admin">Admin. <span class="arrow">▼</span></th>
+          <th>Antigüedad</th>
+          <th>Estado</th>
+          <th>Evidencia del entorno</th>
+          <th>Fuente · URL</th>
+          <th class="sortable" data-k="dias">Publicado <span class="arrow">▼</span></th>
+          <th>Contacto</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="lede" style="margin-top:14px"><strong>Cómo leer «Clasif. urbanística»:</strong> ninguna propiedad alcanzó <span class="chip c-ok">Verde protegido</span>. Para declararlo haría falta el número predial y el concepto de norma de Planeación, y ningún aviso publica dirección exacta. <span class="chip c-warn">Verde en riesgo</span> marca los predios cuyo sector figura en el Plan Municipal de Gestión del Riesgo o cuyo polígono tiene proyecto nuevo confirmado a menos de ~500 m. <span class="chip c-ind">Indeterminado</span> es el resto: requiere consulta predial. La sección 05 explica por qué la falta de un POT vigente inequívoco obliga a presumir «desarrollable» todo lo que no esté declarado.</p>
+  </div>
+</section>
+
+<section id="top8">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Las doce que valen una visita</h2></div>
+    <p class="lede">Rankeadas por evidencia del entorno primero, luego por lote, estudio, parqueaderos cubiertos, densidad de la unidad y administración. <strong>Las cuatro primeras son de esta semana.</strong> La número 2 se publicó el 16 de septiembre; la número 3 ya está descartada y se conserva para dejar constancia de por qué entró y por qué salió. El «margen observado» no es una regla de dedo: sale de duplicados del mismo inmueble con precios distintos y de avisos que dicen «negociable» textualmente.</p>
+    <div class="fichas" id="fichas"></div>
+  </div>
+</section>
+
+<section id="mercado">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Lectura de mercado</h2></div>
+    <p class="lede">Mediana y rango intercuartílico del precio de lista por m² construido, calculados sobre las 93 fichas verificadas de este barrido. Son <em>precios de lista</em>, no cierres: el registro público de transacciones no es consultable en línea, así que esto mide lo que se pide, no lo que se paga.</p>
+    <div class="chart" id="chart"></div>
+    <div class="grid2">
+      <div>
+        <span class="f-label">Dónde está el mejor valor relativo hoy</span>
+        <p>El diferencial que importa no es el del m² construido, sino el del <strong>m² de lote</strong>, porque es lo único que compra entorno natural. En Escobero un lote de 800–1.450 m² con casa de 320–350 m² sale entre $1.500M y $2.000M; ese mismo lote no existe en Esmeraldal ni en Cumbres, donde el producto dominante es casa en unidad cerrada de 190–390 m² construidos sobre lote igual al área construida.</p>
+        <p><strong>Loma del Chocho es la anomalía del barrido.</strong> Mediana de $5,4M/m², la más baja del corredor, y sin embargo es donde aparecieron dos casas campestres con lote de 800 y 850 m² y administración de $0. Chocho cotiza como sector de unidad cerrada media mientras contiene producto campestre. Ese desajuste es la mejor compra del inventario.</p>
+        <p><strong>Loma de las Brujas está cara</strong> —mediana $8,0M/m², la más alta— y lo que se paga ahí es cercanía a City Plaza, no lote. La excepción es el Conjunto San Francisco, donde el precio compra acceso a un bosque privado de 10.000 m².</p>
+      </div>
+      <div>
+        <span class="f-label">Oferta y permanencia</span>
+        <p>De las 93 fichas verificadas, <strong>28 llevan más de seis meses publicadas</strong> y 9 tienen fecha de 2021–2022 y siguen activas. Un aviso de hace cuatro años en un portal que cobra por publicación no es un inmueble en venta: es inventario muerto que nadie despublicó. Trátelos como no verificables hasta que el corredor confirme.</p>
+        <p>La administración es el costo oculto que separa los dos productos del corredor. Casa en unidad cerrada en Esmeraldal, Chocho o Montessori: <strong>$940.000 a $1.650.000 mensuales</strong>. Casa con lote propio en Escobero o Chocho: <strong>$0 a $452.000</strong>. Sobre diez años, esa diferencia son entre $110M y $190M, más que el margen de negociación de cualquiera de estas casas.</p>
+        <span class="f-label">Costos de cierre — comprador</span>
+        <p>Impuesto de registro en Antioquia: <strong>1,0%</strong> sobre el mayor entre precio y avalúo catastral, verificado en el ABC de la Gobernación. Derechos notariales: 0,54% del valor, repartido mitad y mitad, o sea <strong>0,27%</strong> para el comprador. Derechos de registro en la Oficina de Instrumentos Públicos: aproximadamente 0,5%, <em>no verificado en fuente oficial</em>. Total comprador ≈ <strong>1,8%</strong>. Ojo con un detalle: los portales citan una «beneficencia» del 0,29% que <strong>no aparece en el ABC oficial del impuesto de registro de Antioquia</strong> — pídala desglosada antes de pagarla.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="corredores">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Corredores con inventario propio</h2></div>
+    <p class="lede">Doce con teléfono publicado y evidencia verificable de que trabajan estos sectores. El canal cerrado importa aquí: Fincaraíz enmascara todos los teléfonos, mientras que Espacio Urbano publica el directo del corredor en cada ficha — por eso casi todos estos números salieron de ahí. Ninguno fue inventado.</p>
+    <div class="brokers" id="brokers"></div>
+    <div class="note" style="margin-top:24px">
+      <h4>Cómo abordarlos</h4>
+      <p style="margin:0">El producto que usted busca —lote grande con casa habitable bajo $2.200M en Escobero o Chocho— es exactamente el que menos se publica, porque el vendedor de lote grande no quiere visitas de curiosos. Los cuatro con inventario demostrado en ese perfil son <strong>Campo Urbano</strong>, <strong>Prointegral</strong>, <strong>VR Propiedades</strong> y <strong>Globals</strong>. Pídales el listado no publicado directamente y describa el criterio de colindancia; es un encargo lo bastante específico como para que lo recuerden.</p>
+    </div>
+  </div>
+</section>
+
+<section id="alertas">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Alertas</h2></div>
+    <p class="lede">Ordenadas por lo que puede costarle dinero o la vista. Las tres primeras cambian la forma de negociar en todo el corredor, no solo en una casa.</p>
+    <div class="alerts" id="alerts"></div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Qué se buscó y qué quedó pendiente</h2></div>
+
+    <span class="f-label">Cobertura efectiva</span>
+    <p>Se barrieron 21 slugs de sector en Fincaraíz (páginas 1 a 3 de cada uno; el paginado real es <span class="mono">/pagina2</span>, no <span class="mono">?pagina=2</span>), el listado por barrio de Espacio Urbano para Escobero, Esmeraldal, Chocho, Misael y Montessori, y los sitios propios de Real Living, Sisters &amp; Real Estate, Cortés Propiedad Raíz, Grupo Santamaría, Londoño Gómez, Inmobiliaria Proteger y López García. Se abrieron y verificaron una por una <strong>93 fichas de detalle individuales</strong>; ninguna devolvió 404.</p>
+
+    <span class="f-label">Fuentes que no se pudieron barrer</span>
+    <ul class="tight">
+      <li><strong>Metrocuadrado</strong> — renderiza los listados por JavaScript; el HTML servido no contiene ninguna propiedad. Es la única fuente que cataloga «La Calleja» como sector de Envigado, así que ese sector quedó sin cubrir.</li>
+      <li><strong>Mercado Libre Inmuebles</strong> — bloqueado por robots.txt.</li>
+      <li><strong>Wasi</strong> (<span class="mono">info.wasi.co</span>) y <strong>Red Inmobiliaria MLS</strong> (<span class="mono">red.redinmobiliariamls.com</span>) — no estaban en la cobertura del 4 de septiembre y resultaron ser de dónde sale casi todo lo que circula por WhatsApp. Incorporados el 13 de septiembre por los avisos recibidos, pero <strong>no barridos de forma sistemática</strong>: queda pendiente recorrerlos por sector.</li>
+      <li><strong>Properati</strong> — HTTP 403. <strong>Ciencuadras</strong> — devuelve cascarón SEO sin listados. <strong>Habi</strong> y <strong>La Haus</strong> — solo obra nueva, sin casas usadas en estos sectores. <strong>Informe Inmobiliario</strong> — robots.txt.</li>
+      <li><strong>Instagram y grupos de Facebook</strong> de corretaje del sur del Valle de Aburrá — requieren sesión iniciada; no accesibles desde aquí.</li>
+      <li><strong>Espacio Urbano</strong> sí carga los listados y las fichas, pero no publica fecha de publicación en ninguna: por eso las 12 propiedades que vienen de ahí tienen <span class="nr">no reportado</span> en «Publicado» y no se pudo aplicarles el filtro de seis meses.</li>
+    </ul>
+
+    <span class="f-label">Sectores del encargo sin resultados</span>
+    <ul class="tight">
+      <li><strong>El Vallano</strong> y <strong>La Calleja</strong> no existen como slug en Fincaraíz. Peor que un 404: hacen <em>fallback silencioso</em> a la búsqueda nacional y devuelven proyectos en Palmira, Chía y Cajicá. Cualquier búsqueda previa que haya hecho por esos nombres le devolvió basura sin avisarle.</li>
+      <li><strong>La Paz</strong> y <strong>Alto de las Flores</strong>: cero casas de 4+ habitaciones cuya ficha las ubique realmente ahí. Lo que devuelve el buscador resuelve a Señorial, Villas del Carmen, El Trianón o Sabaneta.</li>
+      <li><strong>Alto de Misael</strong>: prácticamente agotado. 16 avisos en total en Fincaraíz y 2 en Espacio Urbano. Solo cuatro entraron.</li>
+      <li><strong>Pontevedra</strong>: sin casas que cumplan; lo poco que hay resuelve a Otraparte y Villagrande, zona plana, sin entorno natural.</li>
+    </ul>
+
+    <span class="f-label">Pendiente de verificar — en orden de importancia</span>
+    <ul class="tight">
+      <li><strong>Qué POT rige hoy.</strong> Es el pendiente número uno y afecta a todo el inventario. Ver alerta 01.</li>
+      <li><strong>Teléfonos de las propiedades de Fincaraíz.</strong> El portal los oculta tras un botón que requiere JavaScript; ninguno de los 93 avisos expuso número. Se recuperaron 12 por cruce con Espacio Urbano y sitios propios. Los demás exigen abrir el aviso en el navegador y pulsar «Ver teléfono».</li>
+      <li><strong>Municipio real de tres avisos de «Loma del Escobero»</strong> con lote grande. Ver alerta 06.</li>
+      <li><strong>Distancia real al Colegio Cumbres</strong> (Cl 36 Sur #27B-4) de las cuatro casas de San Lucas. Las fichas publican barrio, no dirección; medirlas exigiría geocodificar y ninguna publica coordenadas.</li>
+      <li><strong>Cartografía de riesgo alto no mitigable.</strong> Los estudios básicos del Decreto 1807 de 2014 para Envigado no están publicados en línea. Es el dato que define si un predio es inedificable, y no existe forma de obtenerlo sin ir a Planeación.</li>
+      <li><strong>Nombre de la reserva</strong> que menciona el aviso de Las Antillas (E-09). Dice «vista a reserva natural» sin nombrarla; no hay reserva declarada documentada en ese polígono.</li>
+      <li><strong>Litigios y sucesiones.</strong> No consultables en línea por predio. Solo el certificado de tradición y libertad de cada matrícula los revela — pídalo antes de cualquier oferta, cuesta poco y es el único documento que muestra embargos, hipotecas, servidumbres y sucesiones sin liquidar.</li>
+    </ul>
+
+    <div class="note" style="margin-top:26px">
+      <h4>Una advertencia sobre la premisa del encargo</h4>
+      <p style="margin:0">El encargo pedía cruzar con el <strong>DMI Divisoria Valle de Aburrá–Río Cauca</strong> y con la <strong>cuchilla El Romeral</strong>. Ninguno de los dos aplica: son del flanco <em>occidental</em> del valle y cubren once municipios entre los que no está Envigado (Corantioquia, Acuerdo 267 de 2007). El instrumento que sí protege la ladera oriental es el <strong>SILAPE, Acuerdo 009 de 2016</strong> del Concejo de Envigado, con su área núcleo «Escarpe Oriental» sobre las veredas El Escobero, El Vallano, Perico, Pantanillo y Las Palmas. La consecuencia práctica es incómoda: <strong>la protección declarada empieza arriba, en la vereda</strong>, no en las lomas urbanizadas donde está casi todo el inventario de esta lista.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap narrow">
+    <p><strong>Reglas que se siguieron.</strong> No se inventó ninguna propiedad, precio, área, dirección ni teléfono. Cada cifra viene de una ficha de detalle abierta individualmente y el campo dice <span class="nr">no reportado</span> cuando el anunciante no lo diligenció. Las discrepancias internas de los avisos —área construida igual al lote, número de habitaciones que cambia entre ficha y descripción— se transcriben tal cual y se señalan, no se corrigen.</p>
+    <p><strong>Lo que este documento no es.</strong> No es un concepto jurídico ni urbanístico. Los tres tramos de riesgo se construyeron con fuentes públicas de prensa, acuerdos del Concejo y el Plan Municipal de Gestión del Riesgo, no con el expediente predial. Antes de firmar cualquier promesa, el concepto de norma urbanística del Departamento Administrativo de Planeación de Envigado y el certificado de tradición del predio son insustituibles.</p>
+    <p class="mono" style="margin-top:18px;color:var(--faint)">Barrido inicial cerrado el 4 de septiembre de 2026 · 21 slugs de sector · 93 fichas verificadas · 0 URLs caídas<br>Actualizado el 13 de septiembre de 2026 · canal WhatsApp (16 propiedades, 20 mensajes, 5 remitentes) + dos barridos de Fincaraíz sobre Envigado, Escobero, Esmeraldal y Chocho, el segundo ordenado por recencia y con fechas recuperadas de las fichas de detalle · 59 predios en tabla · 37 con fecha verificada<br>Actualizado el 16 de septiembre de 2026 · primera visita hecha (La Calera, descartada) · 6 avisos nuevos del 16-sep incorporados con fecha verificada en ficha · hoja de control compartida activa</p>
+  </div>
+</footer>
+
+<script>
+/* ---------------- contour backdrop ---------------- */
+(function(){
+  var c=document.getElementById('contour');if(!c)return;
+  function ink(){return getComputedStyle(document.documentElement).getPropertyValue('--line').trim()||'#CDD5C9';}
+  function draw(){
+    var p=c.parentElement,w=p.offsetWidth,h=p.offsetHeight,dpr=Math.min(window.devicePixelRatio||1,2);
+    c.width=w*dpr;c.height=h*dpr;var x=c.getContext('2d');x.scale(dpr,dpr);x.clearRect(0,0,w,h);
+    x.strokeStyle=ink();x.lineWidth=1;
+    // two ridge systems -> concentric offset contours, like a plancha topográfica
+    var peaks=[{x:w*0.80,y:h*0.30,a:1.0},{x:w*1.02,y:h*0.92,a:0.72},{x:w*0.58,y:h*1.15,a:0.55}];
+    for(var lvl=1;lvl<=26;lvl++){
+      x.beginPath();
+      var r0=26*lvl;
+      for(var t=0;t<=Math.PI*2+0.02;t+=0.035){
+        var rx=0,ry=0,tot=0;
+        for(var i=0;i<peaks.length;i++){
+          var pk=peaks[i],wgt=pk.a;
+          var wob=1+0.20*Math.sin(t*3+i*1.7+lvl*0.09)+0.11*Math.sin(t*5-i*2.3-lvl*0.05);
+          rx+=wgt*(pk.x+Math.cos(t)*r0*1.42*wob);ry+=wgt*(pk.y+Math.sin(t)*r0*wob);tot+=wgt;
+        }
+        rx/=tot;ry/=tot;
+        if(t===0)x.moveTo(rx,ry);else x.lineTo(rx,ry);
+      }
+      x.globalAlpha=lvl%5===0?0.42:0.17;
+      x.stroke();
+    }
+    x.globalAlpha=1;
+  }
+  draw();
+  var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,180);});
+  if(window.matchMedia)window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',draw);
+})();
+
+/* ---------------- data ---------------- */
+var NR='<span class="nr">no reportado</span>';
+var D=[
+{id:'E-01',origen:'b04',banda:'obj',zona:'core',n:'Casa campestre, lote 1.020 m²',s:'Loma del Escobero',precio:1860,constr:215,lote:1020,verde:805,verdeInf:1,hab:5,ban:4,parq:'5',crit:'b',cl:'ind',admin:452,ant:'1–8 años',est:'Usado',
+ ev:'Lote de 1.020 m² con 215 m² construidos. El aviso ubica la casa cerca del <em>«Aula Ambiental Reserva San Sebastián»</em>. Balcón y terraza. Portería 24 h.',
+ f:'Fincaraíz 193898705',u:'https://www.fincaraiz.com.co/casa-campestre-en-venta-en-loma-del-escobero-envigado/193898705',fecha:'20 jun 2026',
+ ct:'Colonia Inmobiliaria · Colorado Home · VR Propiedades 312 765 4910'},
+
+{id:'E-02',origen:'b04',banda:'obj',zona:'core',n:'Casa campestre independiente',s:'Loma del Chocho — Santa Catalina',precio:1500,constr:320,lote:850,verde:530,verdeInf:1,hab:5,ban:4,parq:'4',crit:'b',cl:'ind',admin:0,ant:'no reportado',est:'Usado',
+ ev:'<em>«Casa Campestre independiente… un lote de terreno de 820 mtrs2… estudio y chimenea, patio trasero para asados»</em>. Espacio Urbano describe <em>«zona verde alrededor de la casa»</em>. Sin cuota de administración.',
+ f:'Fincaraíz 193164944',u:'https://www.fincaraiz.com.co/casa-campestre-en-venta-en-loma-del-chocho-envigado/193164944',fecha:'3 dic 2025',
+ ct:'CINCO Real Estate · Blog Inmobiliaria 320 764 7422'},
+
+{id:'E-03',origen:'b04',banda:'obj',zona:'core',n:'Casa en unidad cerrada, lote 1.001 m²',s:'Loma del Escobero',precio:1800,constr:350,lote:1001,verde:651,verdeInf:1,hab:4,ban:4,parq:'2 cub.',crit:'b',cl:'ind',admin:null,ant:'16–30 años',est:'Usado',
+ ev:'<em>«Entorno totalmente campestre, muy tranquilo… Área de lote de 1.001»</em>. Estudio, balcón, terraza, jardín. Conjunto con gimnasio, sauna, turco y cancha de squash.',
+ f:'Fincaraíz 193086318',u:'https://www.fincaraiz.com.co/casa-en-venta-en-envigado/193086318',fecha:'11 nov 2025',
+ ct:'Prointegral 304 486 5460'},
+
+{id:'E-04',origen:'b04',banda:'obj',zona:'core',n:'Casa 6 alcobas, lote 1.450 m²',s:'Loma del Escobero',precio:2000,constr:350,lote:1450,verde:1100,verdeInf:1,hab:6,ban:6,parq:'2',crit:'b',cl:'ind',admin:0,ant:'no reportado',est:'no reportado',
+ ev:'Lote de 1.450 m² con 350 m² construidos: el mayor remanente de zona verde privada del inventario dentro de presupuesto. Sin cuota de administración. La ficha no trae descripción textual del entorno.',
+ f:'Espacio Urbano 1791421',u:'https://www.espaciourbano.com/Ficha.asp?xId=1791421',fecha:null,
+ ct:'Globals Inmobiliaria 302 100 9238'},
+
+{id:'E-05',origen:'b04',banda:'obj',zona:'core',n:'Casa 4+1 alcobas, lote 800 m²',s:'Loma del Chocho',precio:1620,constr:350,lote:800,verde:450,verdeInf:1,hab:5,ban:4,parq:'4 + útil',crit:'b',cl:'ind',admin:0,ant:'no reportado',est:'no reportado',
+ ev:'Lote de 800 m² con 350 m² construidos. Sin cuota de administración. La ficha no reporta zona verde de forma explícita; el remanente se infiere de la diferencia lote–construido.',
+ f:'Espacio Urbano 1672651',u:'https://www.espaciourbano.com/Ficha.asp?xId=1672651',fecha:null,
+ ct:'Prointegral 304 486 5460'},
+
+{id:'E-06',origen:'b04',banda:'obj',zona:'ady',n:'Conjunto San Francisco — 25 casas',s:'Loma de las Brujas',precio:1780,constr:236,lote:236,verde:100,verdeInf:0,hab:4,ban:5,parq:'3',crit:'a',cl:'warn',admin:1050,ant:'16–30 años',est:'Usado · estrato 6',
+ ev:'<em>«236 m² más 100 m² de zona verde privada, en una exclusiva unidad cerrada de solo 25 casas»</em> con <em>«bosque privado de 10.000 m² para caminar y disfrutar del aire puro»</em>. Es la única evidencia de colindancia con masa boscosa en todo el barrido.',
+ f:'Fincaraíz 193310464',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-de-las-brujas-envigado/193310464',fecha:'22 ene 2026',
+ ct:'Farhana Inmobiliaria'},
+
+{id:'E-07',origen:'b04',banda:'obj',zona:'core',n:'Casa independiente, lote 890 m²',s:'Loma del Esmeraldal',precio:1850,constr:254,lote:890,verde:636,verdeInf:1,hab:4,ban:5,parq:'2 cub. + 4 desc.',crit:'b',cl:'warn',admin:794,ant:'no reportado',est:'Usado',
+ ev:'<em>«Amplias zonas verdes, árboles frutales de mango, limón, mandarina y guayaba»</em>, más terraza, deck e <strong>invernadero</strong>. Sala con chimenea y estudio. Propiedad independiente, no en conjunto. Predial $5.000.000/año.',
+ f:'Fincaraíz 191474436',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-esmeraldal-envigado/191474436',fecha:'24 sep 2024',
+ ct:'Canvas Bien Raíz'},
+
+{id:'E-08',origen:'b04',banda:'obj',zona:'ady',n:'Bosques de San Jorge — campestre independiente',s:'Zúñiga',precio:1850,constr:194,lote:700,verde:506,verdeInf:1,hab:4,ban:4,parq:'6',crit:'b',cl:'ind',admin:0,ant:'9–15 años',est:'Usado · estrato 3',
+ ev:'<em>«Hermosa casa campestre independiente»</em> con <em>«deck, jacuzzi, patio de ropas y zonas verdes»</em>. Lote de 700 m². <strong>No cobra administración.</strong>',
+ f:'Fincaraíz 194113806',u:'https://www.fincaraiz.com.co/casa-en-venta-en-zuñiga-envigado/194113806',fecha:'13 ago 2026',
+ ct:'Red de Inversiones Inmobiliarias'},
+
+{id:'E-09',origen:'b04',banda:'obj',zona:'out',n:'Casa 3 niveles con vista a reserva',s:'Las Antillas',precio:1250,constr:219,lote:219,verde:null,verdeInf:0,hab:4,ban:3,parq:'2',crit:'c',cl:'warn',admin:720,ant:'16–30 años',est:'Usado',
+ ev:'<em>«Zona verde privada con vista a reserva natural»</em> y <em>«sendero ecológico»</em> en zonas comunes. <strong>El aviso no nombra la reserva</strong> y no hay reserva declarada documentada en ese polígono: la vista puede ser a ladera privada desarrollable.',
+ f:'Fincaraíz 192301997',u:'https://www.fincaraiz.com.co/casa-en-venta-en-las-antillas-envigado/192301997',fecha:'23 abr 2025',
+ ct:'Tu360 Inmobiliario'},
+
+{id:'E-10',origen:'b04',banda:'obj',zona:'core',n:'Casa en unidad campestre',s:'Loma del Esmeraldal',precio:1600,constr:null,lote:240,verde:null,verdeInf:0,hab:4,ban:5,parq:'2',crit:'b',cl:'warn',admin:1050,ant:'16–30 años',est:'Excelente estado',
+ ev:'<em>«Unidad muy campestre y tranquila, llena de naturaleza»</em>, con <em>«jardín muy amplio»</em>. El metraje del jardín no se reporta, así que el cumplimiento del umbral de 200 m² <strong>no está verificado</strong>.',
+ f:'Fincaraíz 192933613',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-esmeraldal-envigado/192933613',fecha:'30 sep 2025',
+ ct:'Tu360 Inmobiliario'},
+
+{id:'E-11',origen:'b04',banda:'obj',zona:'ady',n:'Casa 386 m² en unidad de 24 casas',s:'Alto de Misael',precio:1600,constr:386,lote:386,verde:null,verdeInf:0,hab:5,ban:5,parq:'2 cub. + 2 desc.',crit:'a',cl:'warn',admin:0,ant:'9–15 años',est:'Usado · estrato 6',
+ ev:'<em>«Zonas verdes que rodean la casa, creando un ambiente natural y sereno»</em>. Espacio Urbano añade <em>«unidad de 24 casas, zona verde hermosa»</em>. Discrepancia: la ficha dice 5 habitaciones, la descripción dice 4.',
+ f:'Fincaraíz 192084091',u:'https://www.fincaraiz.com.co/casa-en-venta-en-envigado/192084091',fecha:'28 feb 2025',
+ ct:'BEMSA · Margenia Propiedad Raíz 304 499 7177'},
+
+{id:'E-12',origen:'b04',banda:'obj',zona:'ady',n:'Casa en entorno campestre',s:'Loma del Barro',precio:1950,constr:245,lote:null,verde:null,verdeInf:0,hab:4,ban:3,parq:'6',crit:'b',cl:'warn',admin:395,ant:'1–8 años',est:'Usado · estrato 5',
+ ev:'<em>«Entorno totalmente campestre, muy tranquilo»</em>, con jardín y zonas verdes. La ficha reporta 1.216 m² construidos y 245 m² privados — <strong>cifra internamente inconsistente</strong>, se transcribe sin corregir.',
+ f:'Fincaraíz 193633524',u:'https://www.fincaraiz.com.co/casa-en-venta-en-envigado/193633524',fecha:'15 abr 2026',
+ ct:'Prointegral 304 486 5460'},
+
+{id:'E-13',origen:'b04',banda:'obj',zona:'out',n:'Casa con lote de 2.700 m²',s:'El Salado',precio:1600,constr:250,lote:2700,verde:2450,verdeInf:1,hab:4,ban:4,parq:'7',crit:'b',cl:'ind',admin:null,ant:'1–8 años',est:'Usado · estrato 3',
+ ev:'<em>«Espectaculares jardines y árboles frutales. Jardín Zen frente a la casa… la tranquilidad de su ambiente campestre»</em>. La mejor relación lote/precio de todo el barrido: $593.000 por m² de lote.',
+ f:'Fincaraíz 192096369',u:'https://www.fincaraiz.com.co/casa-en-venta-en-el-salado-envigado/192096369',fecha:'4 mar 2025',
+ ct:'Arrendamientos Colombia'},
+
+{id:'E-14',origen:'b04',banda:'obj',zona:'out',n:'Casa con zona verde privada y frutales',s:'El Salado — Palmeras',precio:1380,constr:260,lote:1200,verde:940,verdeInf:1,hab:4,ban:3,parq:'2',crit:'b',cl:'ind',admin:null,ant:'16–30 años',est:'Usado · estrato 2',
+ ev:'<em>«Despierta con el aroma de tus propios árboles frutales, rodeado por una zona verde privada»</em>, con <em>«acceso directo al jardín privado»</em> y <em>«un balcón con vista urbana»</em>.',
+ f:'Fincaraíz 193568784',u:'https://www.fincaraiz.com.co/casa-en-venta-en-envigado/193568784',fecha:'26 mar 2026',
+ ct:'Inmobiliaria Alborada'},
+
+{id:'E-15',origen:'b04',banda:'obj',zona:'out',n:'Casa 400 m² junto al parque ecológico',s:'El Salado',precio:2200,constr:400,lote:3100,verde:2700,verdeInf:1,hab:4,ban:4,parq:'5',crit:'a',cl:'ind',admin:null,ant:'no reportado',est:'Usado · estrato 4',
+ ev:'<em>«Zona de BBQ y zona verde… cerca al parque ecológico el salado»</em>. Lote de 3.100 m², el mayor del inventario. El Parque Ecológico El Salado es equipamiento municipal consolidado, no suelo desarrollable.',
+ f:'Fincaraíz 193417852',u:'https://www.fincaraiz.com.co/casa-en-venta-en-el-salado-envigado/193417852',fecha:'20 feb 2026',
+ ct:'Administración de Bienes Inmobiliarios A&B'},
+
+{id:'E-16',origen:'b04',banda:'obj',zona:'out',n:'Casa rodeada de naturaleza, 1.372 m²',s:'El Salado',precio:1600,constr:null,lote:1372,verde:null,verdeInf:1,hab:4,ban:4,parq:'4',crit:'b',cl:'ind',admin:null,ant:'más de 30 años',est:'Usado · «campestre»',
+ ev:'<em>«Es un ambiente tranquilo, fresco, rodeado de naturaleza»</em>. Terreno 244,26 m² / área privada 1.372 m² según ficha — otra inconsistencia del anunciante, transcrita tal cual.',
+ f:'Fincaraíz 191937115',u:'https://www.fincaraiz.com.co/casa-en-venta-en-el-salado-envigado/191937115',fecha:'29 ene 2025',
+ ct:'Arrendamientos Umbral'},
+
+{id:'E-17',origen:'b04',banda:'obj',zona:'core',n:'Casa 260 m² sin administración',s:'Loma del Esmeraldal',precio:1890,constr:260,lote:null,verde:null,verdeInf:0,hab:5,ban:4,parq:'4',crit:'b',cl:'warn',admin:0,ant:'no reportado',est:'no reportado',
+ ev:'Ficha reporta zonas verdes de copropiedad, sin metraje ni descripción textual. <strong>Evidencia débil</strong> — entra por administración $0 en un sector donde la norma es $1.000.000+, no por entorno demostrado.',
+ f:'Espacio Urbano 1736791',u:'https://www.espaciourbano.com/Ficha.asp?xId=1736791',fecha:null,
+ ct:'Espacio Urbano · Angela Gutiérrez 314 870 7570'},
+
+{id:'E-18',origen:'b04',banda:'obj',zona:'core',n:'Casa 229 m² + oficina de 10 m²',s:'Loma del Esmeraldal',precio:1730,constr:239,lote:null,verde:null,verdeInf:0,hab:5,ban:4.5,parq:'4 + útil',crit:'b',cl:'warn',admin:1205,ant:'no reportado',est:'no reportado',
+ ev:'Único aviso del barrido que reporta <strong>metraje separado de oficina (10 m²)</strong>. Zonas verdes de copropiedad, sin metraje. Evidencia de entorno débil; entra por el espacio de trabajo.',
+ f:'Espacio Urbano 1770038',u:'https://www.espaciourbano.com/Ficha.asp?xId=1770038',fecha:null,
+ ct:'Urbano Expertos 300 773 4453'},
+
+{id:'E-19',origen:'b04',banda:'obj',zona:'core',n:'Gran Colina 129 — vista panorámica',s:'Loma del Chocho',precio:1550,constr:258,lote:258,verde:null,verdeInf:0,hab:4,ban:5,parq:'4 + útil',crit:'c',cl:'ind',admin:1060,ant:'16–30 años',est:'Usado · estrato 6',
+ ev:'El aviso destaca <em>«VISTA PANORÁMICA»</em> con balcón, en 3 niveles, unidad con piscina. <strong>No especifica orientación</strong>: puede ser a la ciudad y no a masa boscosa. Requiere visita para calificar el criterio (c).',
+ f:'Fincaraíz 193669685',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-chocho-envigado/193669685',fecha:'23 abr 2026',
+ ct:'RHBRaíz'},
+
+{id:'E-20',origen:'b04',banda:'obj',zona:'ady',n:'Casa Claraval — vista al oriente',s:'Claraval / Cumbres',precio:1480,constr:194,lote:194,verde:null,verdeInf:0,hab:5,ban:5,parq:'2 cub.',crit:'c',cl:'ind',admin:1170,ant:'más de 30 años',est:'Usado · estrato 5',
+ ev:'<em>«Cuarta alcoba con baño privado, vestier y balcón con hermosa vista al oriente»</em>, más <em>«hermoso jardín interno»</em>. La orientación oriental es la que mira a ladera, no a ciudad — la más prometedora del grupo (c).',
+ f:'Fincaraíz 194154206',u:'https://www.fincaraiz.com.co/casa-en-venta-en-envigado/194154206',fecha:'24 ago 2026',
+ ct:'Interbienes Compañía Inmobiliaria'},
+
+{id:'E-21',origen:'b04',banda:'obj',zona:'ady',n:'Casa 3 niveles con biblioteca',s:'Alto de Misael',precio:950,constr:189,lote:189,verde:null,verdeInf:0,hab:5,ban:5,parq:'2 cub.',crit:'b',cl:'warn',admin:773,ant:'16–30 años',est:'Usado · estrato 5',
+ ev:'<em>«Zonas comunes arborizadas»</em>, <em>«balcones que rodean la casa»</em>, patio-jardín y <strong>biblioteca en el tercer piso</strong>. La opción más barata que cumple; evidencia de entorno moderada.',
+ f:'Fincaraíz 194085809',u:'https://www.fincaraiz.com.co/casa-en-venta-en-alto-de-misael-envigado/194085809',fecha:'6 ago 2026',
+ ct:'Coffee Realty'},
+
+{id:'N-01',origen:'b04',banda:'neg',zona:'core',n:'Casa 5 alcobas, lote 1.156 m²',s:'Loma del Escobero',precio:2330,constr:320,lote:1156,verde:836,verdeInf:1,hab:5,ban:7,parq:'5 + útil',crit:'b',cl:'ind',admin:200,ant:'no reportado',est:'no reportado',
+ ev:'Lote de 1.156 m² con 320 m² construidos y administración de solo $200.000: la combinación lote grande + cuota baja que casi no existe en el corredor. Ficha sin descripción textual del entorno.',
+ f:'Espacio Urbano 1777051',u:'https://www.espaciourbano.com/Ficha.asp?xId=1777051',fecha:null,
+ ct:'Prointegral 304 486 5460'},
+
+{id:'N-02',origen:'b04',banda:'neg',zona:'core',n:'Casa independiente «El Escobero bajito»',s:'Loma del Escobero',precio:2350,constr:350,lote:1000,verde:650,verdeInf:1,hab:4,ban:6,parq:'7 (4 cub.)',crit:'b',cl:'ind',admin:1168,ant:'16–30 años',est:'Usado · estrato 5',
+ ev:'<em>«Vive con amplitud, privacidad y tranquilidad en una exclusiva casa independiente ubicada en El Escobero, sector Bajito»</em>. Doble sala, cocina con isla, 4 alcobas con baño y vestier, subnivel versátil, BBQ.',
+ f:'Fincaraíz 194140142',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-escobero-envigado/194140142',fecha:'20 ago 2026',
+ ct:'Farhana Inmobiliaria · Líderes en Inversiones 300 144 4688'},
+
+{id:'N-03',origen:'b04',banda:'neg',zona:'core',n:'Casa 408 m², lote 992 m²',s:'Loma del Escobero',precio:2400,constr:408,lote:992,verde:584,verdeInf:1,hab:5,ban:4,parq:'4 + útil',crit:'b',cl:'ind',admin:410,ant:'no reportado',est:'no reportado',
+ ev:'408 m² construidos sobre lote de 992 m², administración $410.000. Es el mayor metraje construido dentro de la banda. Sin descripción textual del entorno en la ficha.',
+ f:'Espacio Urbano 1752129',u:'https://www.espaciourbano.com/Ficha.asp?xId=1752129',fecha:null,
+ ct:'Campo Urbano · Paula A. Aguirre 324 384 8888'},
+
+{id:'N-04',origen:'b04',banda:'neg',zona:'core',n:'Casa en parcelación de 19 casas',s:'Loma del Escobero',precio:2300,constr:350,lote:350,verde:null,verdeInf:0,hab:5,ban:5,parq:'4',crit:'a',cl:'ind',admin:1200,ant:'16–30 años',est:'Usado · estrato 5',
+ ev:'<em>«En una zona tranquila, segura y rodeada de naturaleza… ubicada en una exclusiva parcelación de solo 19 casas con portería 24/7»</em>. Turco privado, 4 alcobas con baño propio más servicio.',
+ f:'Fincaraíz 194040690',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-escobero-envigado/194040690',fecha:'27 jul 2026',
+ ct:'Bravento Inmobiliaria'},
+
+{id:'N-05',origen:'b04',banda:'neg',zona:'ady',n:'Casa de un nivel, lote 750 m²',s:'Loma de las Brujas',precio:2300,constr:270,lote:750,verde:480,verdeInf:1,hab:4,ban:5,parq:'4',crit:'b',cl:'warn',admin:300,ant:'1–8 años',est:'Usado · estrato 5',
+ ev:'<em>«4 habitaciones cada una con baño privado más habitación de servicio, biblioteca o posible quinta habitación… en unidad cerrada tranquila y exclusiva, entorno natural y seguro»</em>. Un solo nivel, construcción reciente. Acepta permuta.',
+ f:'Fincaraíz 192238257',u:'https://www.fincaraiz.com.co/casa-en-venta-en-envigado/192238257',fecha:'5 abr 2025',
+ ct:'Gómez Sierra Propiedades'},
+
+{id:'N-06',origen:'b04',banda:'neg',zona:'core',n:'Casa con paisajismo en dos niveles',s:'Montessori / Loma el Atravesado',precio:2390,constr:345,lote:396,verde:null,verdeInf:0,hab:4,ban:4.5,parq:'5',crit:'b',cl:'ind',admin:1650,ant:'9–15 años',est:'Buen estado · estrato 6',
+ ev:'<em>«Jardín exterior en dos niveles diseñado con paisajismo natural»</em>, con <em>«la privacidad de una casa campestre»</em> en un <em>«entorno silencioso y verde»</em>. Además jardín interior y jacuzzi en la principal. La descripción de entorno más rica del sector Montessori.',
+ f:'Fincaraíz 193707589',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-el-atravesado-envigado/193707589',fecha:'4 may 2026',
+ ct:'Century 21 Radial'},
+
+{id:'N-07',origen:'b04',banda:'neg',zona:'core',n:'Casa «rodeada de naturaleza», 4 parq. cubiertos',s:'Montessori / Burdeos',precio:2400,constr:331,lote:370,verde:null,verdeInf:0,hab:5,ban:6,parq:'4 cub.',crit:'a',cl:'ind',admin:1500,ant:'9–15 años',est:'Usado · estrato 6',
+ ev:'<em>«Rodeado de naturaleza… amplias zonas para disfrutar de la tranquilidad»</em>, acabados contemporáneos. Cuatro parqueaderos cubiertos, el máximo del inventario. Unidad cerrada 24/7.',
+ f:'Fincaraíz 193708990',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-el-atravesado-envigado/193708990',fecha:'5 may 2026',
+ ct:'Viviendo Grupo Inmobiliario'},
+
+{id:'N-08',origen:'b04',banda:'neg',zona:'core',n:'Casa 345 m² «rodeado de naturaleza»',s:'Montessori / Burdeos',precio:2250,constr:345,lote:345,verde:null,verdeInf:0,hab:4,ban:5,parq:'4',crit:'a',cl:'ind',admin:1394,ant:'9–15 años',est:'Usado · estrato 6',
+ ev:'<em>«Rodeado de naturaleza… amplitud, iluminación natural»</em>, en <em>«una de las zonas residenciales más tranquilas y seguras»</em>. Parqueadero doble en paralelo.',
+ f:'Fincaraíz 193188227',u:'https://www.fincaraiz.com.co/casa-en-venta-en-envigado/193188227',fecha:'10 dic 2025',
+ ct:'Ana Vélez Propiedad Raíz'},
+
+{id:'N-09',origen:'b04',banda:'neg',zona:'out',n:'Casa con jardín zen, lote 2.086 m²',s:'El Salado',precio:2300,constr:310,lote:2086,verde:1776,verdeInf:1,hab:4,ban:5,parq:'4',crit:'b',cl:'ind',admin:null,ant:'1–8 años',est:'Usado · estrato 3',
+ ev:'<em>«Jardín Zen frente a la casa. Espectaculares jardines y árboles frutales… la tranquilidad del ambiente campestre»</em>. Construcción reciente sobre lote de 2.086 m².',
+ f:'Fincaraíz 192113003',u:'https://www.fincaraiz.com.co/casa-en-venta-en-el-salado-envigado/192113003',fecha:'7 mar 2025',
+ ct:'Arrendamientos Colombia'},
+
+{id:'N-10',origen:'b04',banda:'neg',zona:'core',n:'Casa 5 alcobas junto al Colegio Montessori',s:'Montessori',precio:2300,constr:249,lote:null,verde:null,verdeInf:0,hab:5,ban:7,parq:'4 (2 cub.)',crit:'b',cl:'ind',admin:1338,ant:'no reportado',est:'no reportado',
+ ev:'Ficha reporta <em>«terraza con zona verde»</em> más zonas verdes comunes, sin metraje. Es el aviso más cercano al Colegio Montessori con 5 alcobas dentro de banda.',
+ f:'Espacio Urbano 1793275',u:'https://www.espaciourbano.com/Ficha.asp?xId=1793275',fecha:null,
+ ct:'KSTA Inmobiliaria 302 322 4937'},
+
+{id:'N-11',origen:'b04',banda:'neg',zona:'core',n:'Casa 345 m² con cascada y jardín vertical',s:'Loma del Esmeraldal',precio:2290,constr:345,lote:345,verde:null,verdeInf:0,hab:4,ban:5,parq:'4',crit:'b',cl:'warn',admin:1394,ant:'9–15 años',est:'Usado · estrato 5',
+ ev:'<em>«Espectacular jardín exterior con cascada en piedra, fuente y jardín vertical»</em> y terraza con vistas panorámicas. Predial $18.687.000/año — el más alto del inventario, señal de avalúo catastral elevado.',
+ f:'Fincaraíz 193198238',u:'https://www.fincaraiz.com.co/casa-en-venta-en-envigado/193198238',fecha:'12 dic 2025',
+ ct:'Farhana Inmobiliaria'},
+
+/* ===== canal WhatsApp — recibidas de Mayra y corredores, 12 sep 2026 ===== */
+{id:'W-01',origen:'wa',banda:'obj',zona:'out',n:'Casa de campo entre árboles, lote 660 m²',s:'La Calera — El Poblado',precio:1990,constr:344,lote:660,verde:316,verdeInf:1,hab:4,ban:5,parq:'2 paralelos',crit:'b',cl:'ind',admin:2000,ant:'más de 30 años',est:'Usado · 1990',
+ ev:'Aviso titulado <em>«EXCELENTE CASA EN EL POBLADO»</em>, descrito como <em>«casa de campo»</em>: <strong>4 alcobas y servicio, 2 bibliotecas</strong>, terraza, pisos de mármol y madera, lote de 660 m². Las fotos muestran la casa rodeada de vegetación densa en todo el perímetro. <strong>Contradicción de precio dentro del mismo aviso: el campo dice $1.990M y la descripción dice $2.190M.</strong> Predial $16.000.000 anual.',
+ f:'MLS 254284',u:'https://red.redinmobiliariamls.com/listing/Medellin/La-Calera/2xq9m?locale=es_CO&u=17245',fecha:null,
+ ct:'Jaime Andrés Calle Serna · Conecta Negocios Eficientes 323 320 1299 · 604 366 3511'},
+
+{id:'W-02',origen:'wa',banda:'obj',zona:'ady',n:'Casa remodelada 2023 con jardín y jacuzzi',s:'Loma de Benedictinos',precio:2050,constr:250,lote:482,verde:232,verdeInf:1,hab:4,ban:5,parq:'4',crit:'b',cl:'ind',admin:1585,ant:'16–30 años',est:'Reformada 2023 · estrato 5',
+ ev:'<em>«4 habitaciones, todas con baño privado y vestier… habitación principal con balcón privado con vista al jardín… acceso directo a un gran jardín interno con terraza y jacuzzi»</em>. Domótica y aire acondicionado en todas las habitaciones. <strong>Discrepancia: la ficha dice 250 m² construidos y la descripción dice 350 m².</strong> El aviso también dice «sobre vía principal», lo que rara vez convive con lindero boscoso. Predial $9.783.400 anual.',
+ f:'Wasi 9994087',u:'https://info.wasi.co/casa-venta-loma-de-benedictinos-envigado/9994087',fecha:null,
+ ct:'Santiago Medina Moreno · Real Estate (Wasi)'},
+
+{id:'W-03',origen:'wa',banda:'obj',zona:'ady',n:'Casa esquinera con apartaestudio independiente',s:'Benedictinos',precio:2000,constr:245,lote:389,verde:144,verdeInf:1,hab:4,ban:5,parq:'4 (2 cub.)',crit:'b',cl:'ind',admin:2038,ant:'más de 30 años',est:'Usado · 1996 · estrato 5',
+ ev:'<em>«1 apartaestudio comunicado con la casa pero también con entrada independiente, con baño, clóset, cocina y lavadero»</em> — el único inventario con oficina separable de la vivienda. Jardín, terraza cubierta. <strong>Administración $2.038.000/mes = $24,5M al año</strong>, el costo fijo más alto del inventario. Predial $8.324.000 anual.',
+ f:'Wasi 9874871',u:'https://info.wasi.co/casa-venta-bededictinos-envigado/9874871',fecha:null,
+ ct:'Napoleón Monsalve (Wasi) · vía Mayra y Laura Parra'},
+
+{id:'W-04',origen:'wa',banda:'obj',zona:'ady',n:'Casa reformada con vista panorámica',s:'La Sebastiana',precio:2050,constr:267,lote:null,verde:null,verdeInf:0,hab:4,ban:5,parq:'2',crit:'c',cl:'warn',admin:970,ant:'16–30 años',est:'Reformado · 2009 · estrato 5',
+ ev:'Ficha declara <em>«vista panorámica»</em> y <em>«árboles frutales»</em>. <strong>La cuarta alcoba es el estudio:</strong> la descripción dice <em>«estudio que podría ser una cuarta alcoba, 3 alcobas con baño y vestier»</em> — o hay estudio, o hay cuatro cuartos, no ambos. Unidad grande con piscina, gimnasio, turco, cancha de fútbol y squash.',
+ f:'Wasi 9866373',u:'https://info.wasi.co/casa-venta/9866373',fecha:null,
+ ct:'Erika Gaviria Alzate (Wasi) · vía Mayra'},
+
+{id:'W-05',origen:'wa',banda:'neg',zona:'ady',n:'Benedictine Park — remodelada, estudio y family room',s:'Benedictinos / Transv. Intermedia',precio:2100,constr:290,lote:330,verde:40,verdeInf:1,hab:4,ban:6,parq:'2',crit:'b',cl:'ind',admin:1950,ant:'1–8 años',est:'Remodelada · 2020 · estrato 6',
+ ev:'<em>«ESPECTACULAR, COMPLETAMENTE REMODELADA… 4 habitaciones cada una con baño, <strong>Estudio</strong>, Family Room, 2 niveles principales y un sub nivel, Terraza, <strong>Jardín</strong>. Unidad con salón social, juegos infantiles y zonas verdes»</em>. Conjunto cerrado Benedictine Park, cerca del mall Distrito Aviñón y San Lucas. Construida en 2020, estrato 6, predial $5.600.000 anual — el más bajo del inventario para este rango de precio. <strong>Solo 2 parqueaderos</strong> y lote de 330 m² con 290 m² construidos: el jardín es de patio, no de lindero. <strong>Veredicto de Mayra el 16-sep: «carísima por ese precio».</strong>',
+ f:'Lobbie 397075',u:'https://app.lobbieapp.com/sp/1fIR/Zb/1/0',fecha:null,
+ ct:'vía Mayra · portal Lobbie (app.lobbieapp.com)'},
+
+/* ===== barrido Fincaraíz — 13 sep 2026 ===== */
+{id:'F-01',origen:'f13',banda:'alto',zona:'core',n:'Casa con lote independiente, quebrada en la unidad',s:'Loma del Escobero',precio:2850,constr:360,lote:null,verde:null,verdeInf:0,hab:4,ban:6,parq:'4',crit:'a',cl:'ind',admin:null,ant:'no reportado',est:'no reportado',
+ ev:'<em>«La unidad cuenta con senderos ecológicos, <strong>quebrada</strong> y agua propia… La casa se destaca por tener <strong>vista a hermosos bosques que se registra por todos los espacios</strong>»</em>. 4 alcobas con baño más alcoba de servicio con baño, <strong>biblioteca</strong>, balcón, espacio de hobbies. El aviso dice textualmente <strong>«SE RECIBE UN INMUEBLE DE MENOR VALOR»</strong>. Es el único predio del expediente cuyo verde podría estar protegido por retiro de quebrada — no está verificado, pero es el único con camino para lograrlo.',
+ f:'Fincaraíz 193836712',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-escobero-envigado/193836712',fecha:'3 jun 2026',
+ ct:'Londoño & Jaramillo Inmobiliaria · laura@londonoyjaramillo.com'},
+
+{id:'F-02',origen:'f13',banda:'obj',zona:'core',n:'Casa 210 m² con vista a reserva natural',s:'Loma del Esmeraldal',precio:1360,constr:210,lote:null,verde:null,verdeInf:0,hab:4,ban:4,parq:'no reportado',crit:'c',cl:'warn',admin:null,ant:'no reportado',est:'no reportado',
+ ev:'<em>«4 habitaciones (2 con baño privado), <strong>estudio/oficina</strong> o otra habitación de preferencia, <strong>2 balcones con una vista hermosa a toda la ciudad y reserva natural</strong>»</em>. Cuatro habitaciones más estudio con vista a reserva, $840M por debajo del techo, en el sector objetivo. <strong>El aviso no reporta lote, parqueaderos ni administración</strong> — a ese precio en Esmeraldal algo falta, y averiguar qué es la primera llamada.',
+ f:'Fincaraíz 191928860',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-esmeraldal-envigado/191928860',fecha:'27 ene 2025',
+ ct:'Andrés Homez P.R (Fincaraíz)'},
+
+{id:'F-03',origen:'f13',banda:'alto',zona:'core',n:'Casa 407 m², lote 1.106 m², 10 parqueaderos',s:'Loma del Escobero Alto',precio:2500,constr:407,lote:1106,verde:699,verdeInf:1,hab:5,ban:7,parq:'10',crit:'b',cl:'ind',admin:null,ant:'no reportado',est:'no reportado',
+ ev:'RHBR-25518. <em>«5 alcobas con baño (principal con baño, vestier y turco), alcoba del servicio, sala de hobbies, terraza, 10 parqueaderos»</em> sobre lote de 1.106 m². Aviso sin descripción del entorno: el remanente verde es inferencia aritmética.',
+ f:'Fincaraíz · Escobero',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-escobero/envigado',fecha:null,
+ ct:'RHBRaíz'},
+
+{id:'F-04',origen:'f13',banda:'alto',zona:'core',n:'Casa campestre 450 m², 10 garajes',s:'Loma del Escobero',precio:2250,constr:450,lote:null,verde:null,verdeInf:0,hab:5,ban:5,parq:'10',crit:'b',cl:'ind',admin:null,ant:'no reportado',est:'no reportado',
+ ev:'RHBR-17427, <em>«HERMOSA CASA CAMPESTRE EN ENVIGADO. LOMA DEL ESCOBERO»</em>. 450 m² construidos y diez garajes, sin lote reportado ni descripción del entorno. Entra por metraje y por el descriptor «campestre», no por evidencia.',
+ f:'Fincaraíz · Escobero',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-escobero/envigado',fecha:null,
+ ct:'RHBRaíz'},
+
+{id:'F-05',origen:'f13',banda:'neg',zona:'ady',n:'Casa 280 m², 3 garajes',s:'Loma de las Brujas',precio:2300,constr:280,lote:null,verde:null,verdeInf:0,hab:4,ban:4,parq:'3',crit:'b',cl:'warn',admin:null,ant:'no reportado',est:'Usado · estrato 5',
+ ev:'RHBR-24882. Aviso mínimo: cuatro alcobas, cuatro baños, tres garajes, 280 m². <strong>Sin una sola palabra sobre el entorno.</strong> Loma de las Brujas figura en la alerta naranja de la OGRE.',
+ f:'Fincaraíz · Escobero',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-escobero/envigado',fecha:null,
+ ct:'RHBRaíz'},
+
+{id:'F-06',origen:'f13',banda:'alto',zona:'core',n:'Casa 580 m² con balcón panorámico',s:'Loma del Escobero',precio:2690,constr:580,lote:null,verde:null,verdeInf:0,hab:4,ban:5,parq:'3',crit:'c',cl:'ind',admin:300,ant:'no reportado',est:'Usado',
+ ev:'<em>«4 habitaciones más habitación del servicio… jacuzzi, turco y balcón con vista panorámica»</em>, portería 24/7 y <em>«amplias zonas verdes»</em> de la unidad. Administración de solo $300.000 para 580 m² construidos — dato que vale confirmar.',
+ f:'Fincaraíz · Escobero',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-escobero/envigado',fecha:null,
+ ct:'Rentamos Propiedad Raíz · cód. 11467'},
+
+{id:'F-07',origen:'f13',banda:'obj',zona:'core',n:'Casa 263 m² cerca de City Plaza',s:'Loma del Escobero',precio:1880,constr:263,lote:null,verde:null,verdeInf:0,hab:4,ban:5,parq:'1 privado + útil',crit:'b',cl:'ind',admin:null,ant:'no reportado',est:'Usado',
+ ev:'Unidad con piscina, gimnasio, cancha y <em>«amplias zonas verdes»</em>. <strong>El propio aviso advierte: «Algunas imágenes incluyen ambientación virtual correspondiente a una representación digital realizada con IA para fines ilustrativos».</strong> No juzgue esta casa por las fotos. Discrepancia: la ficha dice 4 habitaciones y la descripción dice 5.',
+ f:'Fincaraíz · Escobero',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-escobero/envigado',fecha:null,
+ ct:'Rentamos Propiedad Raíz · cód. 777279'},
+
+{id:'F-08',origen:'f13',banda:'neg',zona:'ady',n:'Casa 396 m² con senderos ecológicos',s:'Zuñiga',precio:2390,constr:396,lote:null,verde:null,verdeInf:0,hab:4,ban:5,parq:'2 indep.',crit:'b',cl:'warn',admin:null,ant:'no reportado',est:'Usado',
+ ev:'<em>«Balcón, terraza, jardín interior y vista panorámica… un patio con jardín en donde reposan pájaros… vigilancia privada 24/7, circuito cerrado de TV y <strong>senderos ecológicos</strong>»</em>. Solo dos parqueaderos para 396 m². Zúñiga figura en la alerta naranja de la OGRE.',
+ f:'Fincaraíz · Envigado',u:'https://www.fincaraiz.com.co/venta/casas/envigado/antioquia',fecha:null,
+ ct:'Inmobiliaria Ramírez Londoño'},
+
+{id:'F-09',origen:'f13',banda:'obj',zona:'core',n:'Casa 269 m² con jardín interno',s:'Loma del Chocho',precio:1600,constr:269,lote:null,verde:null,verdeInf:0,hab:4,ban:4,parq:'2 cub. paralelos',crit:'b',cl:'ind',admin:1000,ant:'no reportado',est:'Usado',
+ ev:'<em>«Hermoso jardín interno que brinda excelente iluminación y frescura… sala de usos múltiples con amplio balcón y vista al jardín interno»</em>. El jardín es <em>interno</em>: patio de luz, no lindero verde. La cuarta habitación es en realidad la sala de usos múltiples — la descripción lista principal más dos auxiliares.',
+ f:'Fincaraíz · Esmeraldal',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-esmeraldal/envigado',fecha:null,
+ ct:'Fincaraíz — cód. 10043811'},
+
+{id:'F-10',origen:'f13',banda:'alto',zona:'core',n:'Casa 440 m², lote 640 m², con dos alcobas ampliables',s:'El Esmeraldal',precio:2800,constr:440,lote:640,verde:200,verdeInf:1,hab:3,ban:5.5,parq:'5',crit:'b',cl:'warn',admin:1600,ant:'no reportado',est:'Usado',
+ ev:'<em>«3 alcobas con baño y vestier (<strong>posibilidad de 2 más</strong>). Servicio. Estudio, bar, oficina privada. <strong>Jardín grande.</strong> Deck. Parqueadero para 5 carros»</em>. 440 m² en escritura sobre lote de 640 m². Es la única del barrido nuevo que declara estudio <em>y</em> oficina privada por separado.',
+ f:'Fincaraíz · Esmeraldal',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-esmeraldal/envigado',fecha:null,
+ ct:'Fincaraíz — teléfono enmascarado'},
+
+{id:'F-11',origen:'f13',banda:'obj',zona:'core',n:'Urb. Siempre Verde — deck con vista a reserva',s:'Loma del Esmeraldal',precio:1380,constr:200,lote:null,verde:null,verdeInf:0,hab:3,ban:4,parq:'no reportado',crit:'c',cl:'warn',admin:1050,ant:'no reportado',est:'Usado',
+ ev:'<em>«Increíble deck privado con <strong>vista directa a reserva natural</strong>, ideal para disfrutar del café de la mañana, <strong>un espacio de trabajo rodeado de verde</strong> o compartir en familia»</em>. Describe literalmente el encargo — y tiene solo tres alcobas. Vale como referencia de qué existe a $1.380M en Esmeraldal, no como candidata.',
+ f:'Fincaraíz · Esmeraldal',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-esmeraldal/envigado',fecha:null,
+ ct:'Fincaraíz — teléfono enmascarado'},
+
+{id:'F-12',origen:'f13',banda:'alto',zona:'core',n:'Casa 248 m² sobre lote de 807 m²',s:'Loma del Escobero',precio:2200,constr:248,lote:807,verde:559,verdeInf:1,hab:3,ban:4,parq:'2 cub. + útil',crit:'b',cl:'ind',admin:345,ant:'no reportado',est:'Usado',
+ ev:'<em>«3 habitaciones, cada una con baño, 1 baño social, cuarto de hobbes, alcoba del servicio, terraza, <strong>jardín</strong>»</em> sobre lote de 807 m² con administración de $345.000. Marcada <span class="mono">NEGOCIABLE</span> en el portal. Tres alcobas la dejan fuera del encargo, pero el lote y la cuota son de los mejores del Escobero.',
+ f:'Fincaraíz · Escobero',u:'https://www.fincaraiz.com.co/venta/casas/loma-del-escobero/envigado',fecha:null,
+ ct:'Londoño y Jaramillo · laura@londonoyjaramillo.com'},
+
+{id:'F-13',origen:'f13',banda:'obj',zona:'core',n:'Casa 284 m², 4 alcobas y 7 baños',s:'Loma del Chocho',precio:1480,constr:284,lote:null,verde:null,verdeInf:0,hab:4,ban:7,parq:'2',crit:'b',cl:'ind',admin:null,ant:'no reportado',est:'Usado · estrato 5',
+ ev:'RHBR-21428, <em>«HERMOSA CASA EN ENVIGADO SECTOR LOMA DEL CHOCHO»</em>. Cuatro alcobas y 284 m² por $1.480M es la mejor relación precio/metraje con 4 alcobas del corredor núcleo. <strong>Siete baños para cuatro alcobas</strong> es una proporción rara que conviene entender en visita. Aviso sin una palabra sobre el entorno.',
+ f:'Fincaraíz 194248157',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-chocho-envigado/194248157',fecha:'12 sep 2026',
+ ct:'RHBRaíz — código interno RHBR-21428'},
+
+{id:'F-14',origen:'f13',banda:'obj',zona:'core',n:'Casa Alto del Escobero con estudio, 6 garajes',s:'Loma del Escobero',precio:1950,constr:245,lote:245,verde:null,verdeInf:0,hab:4,ban:2,parq:'6',crit:'b',cl:'ind',admin:null,ant:'no reportado',est:'Usado · estrato 5',
+ ev:'RHBR-18237. La ficha confirma <strong>Estudio</strong>, cuarto de servicio, depósito, acceso pavimentado y <strong>seis parqueaderos</strong>. Cuatro alcobas dentro de presupuesto en el Alto del Escobero. <strong>Solo 2 baños para 4 alcobas</strong> — el punto débil evidente. Área de terreno igual a la construida: el anunciante no diligenció el lote.',
+ f:'Fincaraíz 194246997',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-escobero-envigado/194246997',fecha:'12 sep 2026',
+ ct:'RHBRaíz — código interno RHBR-18237'},
+
+{id:'F-15',origen:'f13',banda:'neg',zona:'core',n:'Casa con Guest House, zona campestre',s:'Altos del Escobero',precio:2250,constr:242,lote:242,verde:null,verdeInf:0,hab:5,ban:3,parq:'5',crit:'b',cl:'ind',admin:null,ant:'no reportado',est:'Usado · estrato 5',
+ ev:'RHBR-23201, <em>«Venta Casa Envigado Alto del Escobero (con <strong>Guest House</strong>)»</em>. La ficha marca <strong>Zona Campestre</strong>, <strong>Estudio</strong>, jacuzzi, asador, losa radiante y cinco parqueaderos. La casa de huéspedes independiente resuelve el problema de la oficina separada de la vivienda, igual que el apartaestudio de W-03 pero en el sector objetivo.',
+ f:'Fincaraíz 194248795',u:'https://www.fincaraiz.com.co/casa-en-venta-en-altos-del-escobero-envigado/194248795',fecha:'12 sep 2026',
+ ct:'RHBRaíz — código interno RHBR-23201'},
+
+{id:'F-16',origen:'f13',banda:'neg',zona:'core',n:'Casa en conjunto La Sebastiana',s:'Montessori / La Sebastiana',precio:2390,constr:345,lote:null,verde:null,verdeInf:0,hab:4,ban:5,parq:'no reportado',crit:'b',cl:'warn',admin:null,ant:'no reportado',est:'Usado',
+ ev:'RHBR-17874, <em>«Casa en exclusivo conjunto residencial. La Sebastiana, Envigado»</em>. Cuatro alcobas y 345 m² en el sector Montessori, dentro de la banda negociable. Aviso corto, sin descripción del entorno ni de la zona verde. La Sebastiana figura en el Plan Municipal de Gestión del Riesgo.',
+ f:'Fincaraíz 194246885',u:'https://www.fincaraiz.com.co/casa-en-venta-en-montessori-envigado/194246885',fecha:'12 sep 2026',
+ ct:'RHBRaíz — código interno RHBR-17874'},
+
+/* ===== barrido de recencia — 16 sep 2026, avisos nuevos de la semana ===== */
+{id:'S-01',origen:'f16',banda:'alto',zona:'core',n:'Casa campestre, lote 2.900 m², estudio y biblioteca',s:'Loma del Escobero',precio:2600,constr:300,lote:2900,verde:2600,verdeInf:1,hab:4,ban:5,parq:'10',crit:'b',cl:'ind',admin:920,ant:'no reportado',est:'Usado · estrato 6',
+ ev:'<em>«Casa para la venta en el sector de La Loma del Escobero, con <strong>2.900 metros de lote</strong> y 300 metros construidos, cerca de colegios y vías principales. <strong>Un lugar tranquilo y campestre</strong>… sala, comedor, <strong>estudio, estar de tv, biblioteca</strong>, 4 habitaciones cada una con baño… alcoba más baño del servicio y <strong>10 parqueaderos</strong>»</em>. Unidad con vigilancia 24 h, CCTV, salón social y zonas verdes. Losa radiante, jacuzzi, piso en madera. <strong>Administración $920.000</strong> — la mitad de lo normal en el corredor para este tamaño.',
+ f:'Fincaraíz 194264578',u:'https://www.fincaraiz.com.co/casa-en-venta-en-medellin/194264578',fecha:'16 sep 2026',
+ ct:'Líderes en Inversiones Inmobiliarias y Construcción'},
+
+{id:'S-02',origen:'f16',banda:'alto',zona:'core',n:'Casa 471 m² con dos oficinas, lote 1.000 m²',s:'Loma del Escobero — ojo: El Retiro',precio:2490,constr:471,lote:1000,verde:529,verdeInf:1,hab:4,ban:6,parq:'6',crit:'b',cl:'ind',admin:280,ant:'1–8 años',est:'Usado · estrato 4',
+ ev:'<em>«<strong>Casa en venta en El Retiro.</strong> Ubicada en unidad cerrada… Lote: 1.000 m². Construidos: 471 m². 2 terrazas adicionales. 3 niveles (incluye sótano). <strong>4 habitaciones (posibilidad de ampliar)</strong>. 6 baños. Parqueadero hasta para 6 vehículos. Gimnasio, sala de cine, turco, jacuzzi, bar, <strong>2 oficinas</strong>, domótica en toda la casa, sala con triple altura, chimenea a gas, 3 balcones… sistema de almacenamiento de agua»</em>. Jardín. <strong>Administración $280.000</strong>, la más baja del inventario para una casa de este tamaño. <strong>⚠️ El aviso está catalogado en Loma del Escobero pero dice El Retiro: otro municipio.</strong> Ver alerta 06.',
+ f:'Fincaraíz 194266732',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-escobero-envigado/194266732',fecha:'16 sep 2026',
+ ct:'Homes Provento'},
+
+{id:'S-03',origen:'f16',banda:'obj',zona:'core',n:'Casa 5 alcobas con jardín, 4 garajes',s:'El Chocho',precio:1700,constr:280,lote:370,verde:90,verdeInf:1,hab:5,ban:5,parq:'4',crit:'b',cl:'ind',admin:1199,ant:'16–30 años',est:'Usado · estrato 5',
+ ev:'<em>«Área de terreno de 370 M2 y una impresionante área construida de 280 M2… distribuida en <strong>cinco amplias habitaciones, cada una de ellas con baño privado</strong>… cuatro espaciosos garajes… admite mascotas»</em>. Ficha marca <strong>jardín</strong>, cuarto de servicio, losa radiante, balcón/terraza y parques cercanos. <strong>Ojo:</strong> la descripción dice «disponible para alquiler» aunque el aviso es de venta — plantilla reutilizada, confirmar.',
+ f:'Fincaraíz 194266052',u:'https://www.fincaraiz.com.co/casa-en-venta-en-el-chocho-envigado/194266052',fecha:'16 sep 2026',
+ ct:'Homes Provento'},
+
+{id:'S-04',origen:'f16',banda:'obj',zona:'core',n:'Casa esquinera con estudio y jardín',s:'Loma del Esmeraldal',precio:1300,constr:187,lote:187,verde:null,verdeInf:0,hab:4,ban:5,parq:'3',crit:'b',cl:'warn',admin:null,ant:'no reportado',est:'Usado · estrato 5',
+ ev:'RHBR-29587, <em>«CASA ESQUINERA EN VENTA ENVIGADO»</em>. La ficha confirma <strong>Estudio</strong> y <strong>Jardín</strong>, más losa radiante, agua caliente central, gimnasio en la unidad y tres parqueaderos. Cuatro alcobas y cinco baños por $1.300M en Esmeraldal: el más barato del sector objetivo con 4 alcobas. Área de terreno igual a la construida — el anunciante no diligenció el lote.',
+ f:'Fincaraíz 194267404',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-esmeraldal-envigado/194267404',fecha:'16 sep 2026',
+ ct:'RHBRaíz — código interno RHBR-29587'},
+
+{id:'S-05',origen:'f16',banda:'neg',zona:'core',n:'Casa 480 m² con estudio y chimenea',s:'Loma del Escobero — ojo: El Retiro',precio:2350,constr:480,lote:null,verde:null,verdeInf:0,hab:4,ban:4,parq:'5',crit:'b',cl:'ind',admin:null,ant:'no reportado',est:'Usado · estrato 6',
+ ev:'RHBR-20429, titulado <em>«<strong>VENTA CASA EL RETIRO</strong> LOMA DEL ESCOBERO»</em>. 480 m² construidos, cuatro alcobas, cinco parqueaderos. La ficha marca <strong>Estudio</strong>, chimenea, cocina equipada y despensa. <strong>⚠️ Mismo problema de municipio que S-02.</strong> Sin lote reportado ni descripción del entorno.',
+ f:'Fincaraíz 194268173',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-escobero-envigado/194268173',fecha:'16 sep 2026',
+ ct:'RHBRaíz — código interno RHBR-20429'},
+
+{id:'S-06',origen:'f16',banda:'obj',zona:'core',n:'Casa 218 m², 4 alcobas y 5 baños',s:'Loma del Chocho',precio:1600,constr:218,lote:218,verde:null,verdeInf:0,hab:4,ban:5,parq:'2',crit:'b',cl:'ind',admin:null,ant:'no reportado',est:'Usado',
+ ev:'RHBR-28563, <em>«VENDO CASA EN ENVIGADO EN LA LOMA DEL CHOCHO»</em>. Ficha marca <strong>zonas verdes</strong> y asador, sin metraje ni descripción. Área de terreno igual a la construida: sin jardín propio declarado. Es el patrón del Chocho que ya documenta la sección 03.',
+ f:'Fincaraíz 194267884',u:'https://www.fincaraiz.com.co/casa-en-venta-en-loma-del-chocho-envigado/194267884',fecha:'16 sep 2026',
+ ct:'RHBRaíz — código interno RHBR-28563'}
+];
+
+/* ================= TABLERO COMPARTIDO ================= */
+var EST=[
+  {k:'interesa',   l:'Por ver',        c:'c-ind'},
+  {k:'cita',       l:'Cita agendada',  c:'c-warn'},
+  {k:'visitada',   l:'Visitada',       c:'c-ok'},
+  {k:'descartada', l:'Descartada',     c:'c-alert'}
+];
+var ESTL={nueva:'Sin marcar',interesa:'Por ver',cita:'Cita agendada',visitada:'Visitada',descartada:'Descartada'};
+var ST={};              /* id -> {estado, nota, cita, by, at} */
+/* ST y RO se sincronizan con window desde el módulo de Firebase */
+var DBREF=null, USER=null, MYID=null, PROF={}, RO=true;   /* solo lectura hasta que Firebase autentique */
+
+function esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function estSelect(id,val){
+  var o='';
+  o+='<option value="nueva"'+(val==='nueva'?' selected':'')+'>Sin marcar</option>';
+  EST.forEach(function(e){o+='<option value="'+e.k+'"'+(val===e.k?' selected':'')+'>'+e.l+'</option>';});
+  return '<select data-estsel="'+id+'"'+(RO?' disabled':'')+'>'+o+'</select>';
+}
+
+
+/* ---------------- table render ---------------- */
+var SECTORLBL={core:'Núcleo',ady:'Adyacente',out:'Fuera de zona'};
+var CLLBL={ok:['Verde protegido','c-ok'],warn:['Verde en riesgo','c-warn'],ind:['Indeterminado','c-ind']};
+var CRITLBL={a:'a · Colinda',b:'b · Jardín',c:'c · Vista'};
+var BANDLBL={obj:'objetivo',neg:'negoc.',alto:'sobre banda'};
+var ORIGLBL={b04:'barrido 4 sep',wa:'whatsapp',f13:'barrido 13 sep',f16:'nueva 16 sep'};
+function cop(m){return '$'+m.toLocaleString('es-CO')+'M';}
+function ppm(d){return d.constr?Math.round(d.precio*1000/d.constr):null;}
+function fmt(v,suf){return v==null?NR:'<span class="mono">'+v.toLocaleString('es-CO')+(suf||'')+'</span>';}
+
+var MES={ene:0,feb:1,mar:2,abr:3,may:4,jun:5,jul:6,ago:7,sep:8,oct:9,nov:10,dic:11};
+var HOY=new Date(2026,8,13);
+function dias(f){
+  if(!f)return null;
+  var m=/^(\d{1,2})\s+([a-zé]{3})[a-z]*\.?\s+(\d{4})$/i.exec(f.trim());
+  if(!m)return null;
+  var mes=MES[m[2].toLowerCase().slice(0,3)];
+  if(mes===undefined)return null;
+  return Math.round((HOY-new Date(+m[3],mes,+m[1]))/86400000);
+}
+function edadTxt(n){
+  if(n==null)return null;
+  if(n<1)return 'hoy';
+  if(n<31)return 'hace '+n+' d';
+  var me=Math.round(n/30.44);
+  if(me<24)return 'hace '+me+' mes'+(me===1?'':'es');
+  return 'hace '+(n/365).toFixed(1)+' años';
+}
+function edadCat(n){return n==null?'nd':(n<=92?'fresco':(n<=183?'medio':'viejo'));}
+var EDADCHIP={fresco:['≤ 3 meses','c-ok'],medio:['3–6 meses','c-warn'],viejo:['> 6 meses','c-alert'],nd:['sin fecha','c-plain']};
+
+var filters={banda:null,zona:null,crit:null,origen:null,edad:null},sortKey='fit',sortDir=1;
+D.forEach(function(d,i){d.fit=i;d.ppm=ppm(d);d.dias=dias(d.fecha);d.edad=edadCat(d.dias);});
+
+function render(){
+  ST=window.ST||ST; RO=window.RO!==undefined?window.RO:RO;
+  var rows=D.filter(function(d){
+    return (!filters.banda||d.banda===filters.banda)&&(!filters.zona||d.zona===filters.zona)&&(!filters.crit||d.crit===filters.crit)&&(!filters.origen||d.origen===filters.origen)&&(!filters.edad||d.edad===filters.edad)&&(!boardFilter||((ST[d.id]&&ST[d.id].estado)||'nueva')===boardFilter);
+  });
+  rows.sort(function(a,b){
+    var x=a[sortKey],y=b[sortKey];
+    if(x==null&&y==null)return a.fit-b.fit;
+    if(x==null)return 1; if(y==null)return -1;
+    return (x-y)*sortDir||a.fit-b.fit;
+  });
+  var tb=document.querySelector('#master tbody'),html='';
+  rows.forEach(function(d){
+    var cl=CLLBL[d.cl];
+    var sd=ST[d.id]||{}; var st=sd.estado||'nueva';
+    html+='<tr>'+
+      '<td class="est">'+estSelect(d.id,st)+
+        '<input type="date" data-cita="'+d.id+'" value="'+esc(sd.cita||'')+'" title="Fecha de la cita"'+(RO?' disabled':'')+'>'+
+        '<span class="who" data-who="'+d.id+'"></span></td>'+
+      '<td class="nota"><textarea data-note="'+d.id+'" rows="2" placeholder="Qué vimos, qué preguntar, qué no cuadra…"'+(RO?' readonly':'')+'>'+esc(sd.nota||'')+'</textarea></td>'+
+      '<td class="id">'+d.id+
+        '<span class="bandtag '+d.banda+'">'+BANDLBL[d.banda]+'</span>'+
+        '<span class="orig">'+ORIGLBL[d.origen]+'</span></td>'+
+      '<td class="name">'+d.n+'<small>'+SECTORLBL[d.zona]+'</small>'+
+        '<a class="ver" href="'+d.u+'" target="_blank" rel="noopener">Ver aviso ↗</a></td>'+
+      '<td>'+d.s+'</td>'+
+      '<td class="num"><strong>'+cop(d.precio)+'</strong></td>'+
+      '<td class="num">'+(d.ppm?'$'+d.ppm.toLocaleString('es-CO')+'k':NR)+'</td>'+
+      '<td class="num">'+(d.constr?d.constr+' m²':NR)+'</td>'+
+      '<td class="num">'+(d.lote?d.lote.toLocaleString('es-CO')+' m²':NR)+'</td>'+
+      '<td class="num">'+(d.verde?d.verde.toLocaleString('es-CO')+' m²'+(d.verdeInf?' <span style="color:var(--faint)">inf.</span>':''):NR)+'</td>'+
+      '<td class="num">'+d.hab+'</td><td class="num">'+d.ban+'</td><td class="num">'+d.parq+'</td>'+
+      '<td><span class="chip c-plain">'+CRITLBL[d.crit]+'</span></td>'+
+      '<td><span class="chip '+cl[1]+'">'+cl[0]+'</span></td>'+
+      '<td class="num">'+(d.admin==null?NR:(d.admin===0?'<span style="color:var(--ok)">sin cuota</span>':'$'+d.admin.toLocaleString('es-CO')+'k'))+'</td>'+
+      '<td>'+d.ant+'</td><td>'+d.est+'</td>'+
+      '<td class="ev">'+d.ev+'</td>'+
+      '<td class="src"><a href="'+d.u+'" target="_blank" rel="noopener">'+d.f+' ↗</a></td>'+
+      '<td class="num">'+(d.fecha?d.fecha+'<br><span style="font-size:11px;color:var(--muted)">'+edadTxt(d.dias)+'</span>':NR)+
+        '<br><span class="chip '+EDADCHIP[d.edad][1]+'" style="margin-top:4px">'+EDADCHIP[d.edad][0]+'</span></td>'+
+      '<td style="min-width:180px;font-size:12.5px">'+d.ct+'</td>'+
+    '</tr>';
+  });
+  tb.innerHTML=html;
+  document.getElementById('count').textContent=rows.length+' de '+D.length+' predios';
+  if(typeof paintWho==='function')paintWho();
+}
+
+document.querySelectorAll('.tbtn[data-f]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var f=b.dataset.f,v=b.dataset.v;
+    var on=filters[f]===v;
+    filters[f]=on?null:v;
+    document.querySelectorAll('.tbtn[data-f="'+f+'"]').forEach(function(o){
+      o.setAttribute('aria-pressed', String(!on&&o===b));
+    });
+    render();
+  });
+});
+document.getElementById('reset').addEventListener('click',function(){
+  filters={banda:null,zona:null,crit:null,origen:null,edad:null};sortKey='fit';sortDir=1;
+  document.querySelectorAll('.tbtn[data-f]').forEach(function(o){o.setAttribute('aria-pressed','false');});
+  document.querySelectorAll('#master th.sortable').forEach(function(t){t.removeAttribute('aria-sort');});
+  render();
+});
+document.querySelectorAll('#master th.sortable').forEach(function(th){
+  th.addEventListener('click',function(){
+    var k=th.dataset.k;
+    if(sortKey===k)sortDir=-sortDir;else{sortKey=k;sortDir=1;}
+    document.querySelectorAll('#master th.sortable').forEach(function(t){t.removeAttribute('aria-sort');});
+    th.setAttribute('aria-sort',sortDir===1?'ascending':'descending');
+    th.querySelector('.arrow').textContent=sortDir===1?'▲':'▼';
+    render();
+  });
+});
+render();
+
+/* ---------------- fichas top 8 ---------------- */
+var MED={'Loma del Escobero':6710,'Loma del Chocho':5400,'Loma del Esmeraldal':6400,'Loma de las Brujas':8000,'Montessori / Loma el Atravesado':6930,'Zúñiga':7200};
+var F=[
+{id:'F-01',r:1,med:6710,
+ por:'Es la primera propiedad del expediente donde el verde del lindero puede estar protegido por norma y no por suerte. El aviso dice que la unidad tiene <strong>quebrada</strong> y senderos ecológicos propios, y el retiro de quebrada es suelo de protección por el Acuerdo 010 de 2011: no se puede construir en él. Todo lo demás de esta lista depende de que el vecino no venda; esto no. Encima trae las cuatro alcobas con baño, alcoba de servicio, <strong>biblioteca</strong> y cuatro parqueaderos — el encargo completo, sin sustituciones.',
+ lim:'<strong>$650M sobre el techo, un 30%.</strong> La ficha no reporta lote, administración, antigüedad ni estado: cuatro campos en blanco en la propiedad más cara que se ha recomendado. El aviso dice «a 15 minutos de la parte central de Envigado», lo que hay que traducir a minutos reales al Colegio Cumbres antes de enamorarse.',
+ est:'Biblioteca declarada en la lista del anunciante, más un «espacio de hobbies» separado. Con la frase «vista a hermosos bosques que se registra por todos los espacios», el escritorio contra una ventana verde no es un problema de diseño sino de elegir cuál.',
+ riesgo:'Indeterminado <em>hoy</em>, y es la única del expediente con camino corto para dejar de serlo: pida el plano de retiros de esa quebrada y el reglamento de propiedad horizontal. Si la quebrada es de la copropiedad y el retiro está levantado, esta casa pasa a <span class="chip c-ok">Verde protegido</span> y sería la primera. Verifique también que no esté del lado de El Retiro (alerta 06) y su distancia a los polígonos de Artesia y Ártiko (alerta 02).',
+ margen:'El aviso dice textualmente <strong>«SE RECIBE UN INMUEBLE DE MENOR VALOR»</strong>. Es la única propiedad del expediente que abre la puerta a una permuta, y con un inmueble propio en la mesa los $650M de brecha dejan de ser un descuento imposible y pasan a ser una estructura de operación. Esa frase vale más que cualquier porcentaje de rebaja.'},
+
+{id:'F-02',r:4,med:6400,
+ por:'Sobre el papel es la mejor relación encargo/precio del expediente: cuatro habitaciones más estudio, dos balcones con vista a ciudad y reserva natural, en Loma del Esmeraldal — el sector del encargo del que ningún corredor había mandado nada — por <strong>$1.360M, $840M bajo el techo</strong>. La ficha confirma <strong>Estudio</strong> y conjunto cerrado, y declara antigüedad de construcción de 1 a 8 años.',
+ lim:'<strong>Lleva 19 meses publicada: entró el 27 de enero de 2025 y sigue ahí.</strong> Eso reordena todo. Un precio 21% bajo la mediana del sector que no se ha movido en año y medio no es una ganga que nadie vio: es un aviso al que le falta algo, o un inmueble que ya no está en venta y nadie despublicó. Además la ficha marca <strong>«Sobre vía principal»</strong> —difícil de conciliar con la vista a reserva que promete— deja en blanco lote y área construida, y reporta solo <strong>2 parqueaderos</strong>.',
+ est:'<em>«Estudio/oficina o otra habitación de preferencia»</em> aparece explícito aparte de las cuatro habitaciones, y la ficha lo confirma en comodidades. Los dos balcones miran a ciudad y reserva.',
+ riesgo:'<span class="chip c-warn">Verde en riesgo</span> por sector, y aquí la duda es mayor: <strong>el aviso no nombra la reserva</strong>, igual que E-09 en Las Antillas. «Reserva natural» sin nombre suele ser ladera privada desarrollable. Combínelo con «sobre vía principal» y la vista hay que verla antes de creerla. A favor pesa el fallo del Tribunal Administrativo de Antioquia del 22 de diciembre de 2021, ganado por la comunidad de esta misma loma.',
+ margen:'<strong>Diecinueve meses en mercado es el argumento de negociación más fuerte del expediente entero</strong>, por encima incluso de los 23 meses de E-07. Pero antes de negociar hay una llamada previa que hacer: confirmar que sigue en venta y preguntar sin rodeos por qué no se ha vendido. La respuesta a esa pregunta vale más que cualquier descuento.'},
+
+{id:'S-01',r:2,med:6710,
+ por:'Apareció hoy y es el competidor directo de la del Escobero con quebrada, $250M más barata. <strong>Lote de 2.900 m²</strong> — el mayor del corredor Escobero en todo el expediente — con 300 m² construidos, <strong>cuatro habitaciones cada una con baño</strong>, alcoba de servicio y, lo que casi nadie ofrece, <strong>estudio Y biblioteca como espacios separados</strong>. Diez parqueaderos. Y una administración de $920.000 donde lo normal para este tamaño es $1,5–2 millones: sobre diez años eso solo son unos $100M de diferencia.',
+ lim:'<strong>$400M sobre el techo.</strong> El aviso no reporta antigüedad ni estado de la construcción, y con 300 m² construidos sobre 2.900 m² de lote hay que entender qué se compra: es terreno con casa modesta encima, no una casa grande. La ficha registra el lote como 300 m² y el área privada como 2.900 m² — el anunciante invirtió los campos, como pasa en media docena de avisos de este expediente.',
+ est:'<strong>Estudio y biblioteca, listados por separado</strong> en la propia descripción, más un estar de TV. Es el único predio del expediente con dos espacios de trabajo declarados dentro del sector objetivo — W-01 tenía dos bibliotecas pero está en El Poblado y ya quedó descartada.',
+ riesgo:'Indeterminado, y con 2.900 m² el riesgo cambia de naturaleza: aquí el verde es <em>suyo</em>, no prestado del vecino ni de la copropiedad. Eso lo hace estructuralmente más seguro que cualquier vista. Lo que sí hay que verificar es el municipio —dos avisos nuevos de esta misma semana catalogados en «Loma del Escobero» resultaron ser de El Retiro (ver S-02 y S-05)— y la distancia real al Colegio Cumbres.',
+ margen:'Publicada hoy: cero margen por tiempo en mercado, que es lo contrario de E-07 y F-02. Un aviso recién salido se negocia con argumentos, no con paciencia. A favor juega que el corredor, Líderes en Inversiones, ya aparece en este expediente con el Escobero «bajito» de N-02 — es un mandato que se puede trabajar en paquete.'},
+
+{id:'W-01',r:3,med:null,
+ por:'<strong>DESCARTADA — Mayra la visitó el 15 de septiembre y su veredicto fue «No, muy cara y malita».</strong> Se deja en la lista para dejar constancia de por qué entró y por qué salió. Era la mejor de las dieciséis que llegaron por WhatsApp y no se parece a ninguna: <strong>lote de 660 m², 344 m² construidos, cuatro alcobas más servicio y dos bibliotecas</strong>, con las fotos mostrando la casa metida entre árboles por todo el perímetro. El propio aviso la llama «casa de campo» aunque esté dentro de El Poblado. Es la única del canal WhatsApp que responde al criterio de entorno en lugar de esquivarlo.',
+ lim:'<strong>Rompe la exclusión de El Poblado</strong>, que era regla del encargo. Los costos fijos son los más altos del expediente: administración de $2.000.000 mensuales más predial de <strong>$16.000.000 anuales</strong>, cerca de $40M al año antes de vivir ahí. Solo dos parqueaderos, y en paralelo. Casa de 1990, sin reporte de remodelación.',
+ est:'<strong>Dos bibliotecas</strong> declaradas en la ficha. No hay que convertir una alcoba ni negociar con nadie el espacio de trabajo: ya existe, por duplicado, y las fotos muestran vegetación contra las ventanas.',
+ riesgo:'Indeterminado. El Poblado no está cubierto por el barrido de riesgo de Envigado de este expediente, así que aquí no aplica ninguna de las alertas municipales: hay que hacer la consulta de norma en Planeación de <strong>Medellín</strong>, no de Envigado. Los 316 m² de verde remanente son del lote y por eso están garantizados; lo que falta verificar es qué puede construirse en el predio vecino.',
+ margen:'<strong>El mismo aviso se contradice: el campo de precio dice $1.990M y su propia descripción dice $2.190M.</strong> Esa diferencia de $200M es la conversación de apertura. O el precio bajó y no actualizaron la descripción —lo más probable— o hay un error que conviene aclarar antes de que lo corrijan hacia arriba.'},
+
+{id:'E-06',r:5,med:8000,
+ por:'Es la única propiedad de todo el barrido con evidencia textual de colindancia con masa boscosa: la copropiedad tiene un bosque privado de 10.000 m², y eso —a diferencia de una vista— es un derecho real que consta en el reglamento de propiedad horizontal y no depende de que el vecino no construya. Veinticinco casas es baja densidad de verdad.',
+ lim:'La zona verde propia son 100 m², la mitad del umbral que usted fijó. La administración de $1.050.000 es alta y sube con el mantenimiento del bosque. La casa tiene entre 16 y 30 años: presupueste actualización de cocina y baños, no obra estructural.',
+ est:'La ficha no describe un estudio. Con 236 m² en 4 habitaciones y 5 baños, el candidato natural es una alcoba auxiliar convertida; la orientación hacia el bosque hay que verificarla en visita, porque el aviso no dice de qué lado del conjunto está la casa.',
+ riesgo:'El bosque es privado de la copropiedad, no suelo de protección declarado: está tan seguro como el reglamento de PH y tan expuesto como una asamblea que decida densificar. <strong>Pida el reglamento y el acta de la última asamblea antes de ofertar.</strong> Loma de las Brujas figura en la alerta naranja de 22 barrios de la OGRE y su quebrada recibió obras de mitigación en 2025 por parte del municipio.',
+ margen:'Sin evidencia directa en este aviso. El sector muestra tres avisos distintos clavados en $2.300M para casas de 260–280 m², lo que sugiere anclaje de precio de lista más que valor de cierre.'},
+
+{id:'E-02',r:6,med:5400,
+ por:'La mejor compra del inventario por una razón aritmética: 320 m² construidos y 850 m² de lote por $1.500M en un sector cuya mediana es $5,4M/m². Trae estudio y chimenea declarados, cuatro parqueaderos, y —lo decisivo en el largo plazo— <strong>no cobra administración</strong>. Contra una casa equivalente en Esmeraldal a $1.100.000 mensuales, son $132M ahorrados en diez años.',
+ lim:'La ficha de Fincaraíz dice lote de 850 m² y la descripción dice 820 m²; hay que resolverlo con el certificado de tradición. No reporta año de construcción ni estado, y el aviso lleva nueve meses publicado. Casa campestre independiente significa también portería propia, jardinería propia y vía de acceso propia.',
+ est:'Estudio declarado explícitamente en la descripción, junto con la chimenea. Con 850 m² de lote y solo 320 m² construidos, ubicar el escritorio contra una ventana al jardín es cuestión de escoger, no de renunciar a algo.',
+ riesgo:'Indeterminado, y aquí importa más que en otras: es predio independiente en Loma del Chocho, sin la barrera que da una copropiedad. Los 530 m² de verde son suyos y por eso están garantizados; lo que hay que verificar es qué puede construirse en el predio colindante. <strong>Concepto de norma del vecino, no solo del suyo.</strong> Sin proyecto anunciado a menos de 300 m según el barrido de prensa.',
+ margen:'El mismo inmueble aparece publicado por dos corredores —CINCO Real Estate y Blog Inmobiliaria— al mismo precio. Mandato abierto: negocie con ambos por separado.'},
+
+{id:'E-01',r:7,med:6710,
+ por:'Lote de 1.020 m² con casa reciente (1 a 8 años) por $1.860M, cinco alcobas y cinco parqueaderos, con administración entre $390.000 y $452.000 según la fuente. Es la combinación más limpia de lote grande, casa nueva y cuota baja que apareció.',
+ lim:'215 m² construidos, muy por debajo del rango de 280–450 m² que usted marcó como deseable: es una casa modesta sobre un lote grande. Está publicada por tres corredores distintos, señal de mandato abierto y de que lleva tiempo sin moverse.',
+ est:'La descripción detalla habitación principal con vestier en el primer nivel y tres arriba con balcón y terraza, pero no menciona estudio. Con 1.020 m² de lote, la ampliación es viable —y es probablemente la razón para comprar aquí.',
+ riesgo:'<strong>Es el punto crítico de esta propiedad.</strong> El aviso la sitúa cerca del Aula Ambiental Reserva San Sebastián–La Castellana, que está en <strong>El Retiro</strong>, no en Envigado. La vía del Escobero cruza al municipio vecino y otro aviso del mismo barrido dice literalmente «VENTA CASA EL RETIRO LOMA DEL ESCOBERO» con ficha de Envigado. Verifique el municipio en el certificado de tradición <strong>antes de cualquier otra cosa</strong>: cambia POT, predial, colegio, y el trayecto diario.',
+ margen:'Tres corredores compitiendo por el mismo mandato y dos cuotas de administración distintas publicadas ($390.000 vs $452.000) indican que el aviso no está actualizado con rigor. Espacio suficiente para pedir.'},
+
+{id:'E-03',r:8,med:6710,
+ por:'«Entorno totalmente campestre» en la propia descripción del anunciante, lote de 1.001 m² con estudio declarado, dentro de unidad cerrada con gimnasio, sauna, turco y cancha de squash. Combina lote grande con la seguridad y los servicios de copropiedad — algo que E-02 no da.',
+ lim:'Solo dos parqueaderos cubiertos, por debajo del mínimo que usted fijó si cuenta visitas frecuentes. La ficha trae las áreas invertidas (registra 1.001 m² como construidos y 350 m² como lote, cuando la descripción dice lo contrario). No reporta administración, lo cual en una unidad con sauna y squash es un dato que hay que exigir antes de avanzar.',
+ est:'Estudio explícito en la descripción, junto a sala y comedor independientes. Es de las pocas donde el espacio de trabajo está en la lista del anunciante y no hay que inventarlo.',
+ riesgo:'Indeterminado. Escobero es el sector con más presión constructora del corredor: Artesia (240 unidades) y Ártiko, ambos de Constructora Capital, están en obra sobre la misma loma. Verifique en qué kilómetro está la unidad respecto de esos polígonos antes de valorar la vista.',
+ margen:'Once meses publicado sin cambio de precio. Corredor con perfil verificado en el portal, lo que suele significar mandato formal y menos flexibilidad, pero el tiempo en mercado juega a favor.'},
+
+{id:'E-04',r:9,med:6710,
+ por:'1.450 m² de lote —el mayor del corredor Escobero— con 350 m² construidos, seis alcobas y <strong>sin cuota de administración</strong>, por $2.000M. En términos de metro cuadrado de tierra, es lo más barato que ofrece el Escobero: $1.379.000 por m² de lote.',
+ lim:'Solo dos parqueaderos, que para 1.450 m² de lote es un desajuste raro y vale la pena entender. La ficha no reporta año, estado ni descripción textual del entorno: los 1.100 m² de verde son inferencia aritmética, no dato publicado. Espacio Urbano no publica fecha, así que la vigencia del aviso no es verificable en línea.',
+ est:'No hay descripción. Seis alcobas en 350 m² sugiere habitaciones pequeñas; el estudio saldría de convertir una, y en un lote así la ampliación en planta baja es la salida obvia.',
+ riesgo:'Indeterminado y sin descripción del entorno, lo que la hace la más ciega de las ocho. Es la propiedad de esta lista que más necesita una visita antes que un análisis.',
+ margen:'Sin datos publicados. Administración $0 y ausencia de fecha sugieren propietario directo o mandato antiguo — ambos escenarios favorables para negociar.'},
+
+{id:'N-01',r:10,med:6710,
+ por:'Lote de 1.156 m², cinco alcobas, siete baños, cinco parqueaderos y administración de <strong>$200.000</strong>. Esa cuota, en un sector donde lo normal es un millón, es la anomalía más rentable del inventario: son cerca de $100M de diferencia sobre diez años, más que el descuento que va a conseguir negociando.',
+ lim:'Está en banda negociable a $2.330M, $130M por encima de su techo objetivo. Ficha sin año, sin estado y sin descripción del entorno. Como todas las de Espacio Urbano, sin fecha de publicación verificable.',
+ est:'Sin descripción. 320 m² en cinco alcobas y siete baños es una casa con mucho baño y poco espacio de estar; el estudio habrá que sacarlo del lote, no de la planta.',
+ riesgo:'Indeterminado, mismo contexto de presión constructora del Escobero que E-03. La ventaja frente a las de unidad cerrada es que 836 m² de verde son suyos y nadie los urbaniza.',
+ margen:'A $2.330M, bajar a su techo de $2.200M son 5,6%. Prointegral tiene inventario amplio en el corredor y es de los corredores con quienes vale negociar en paquete.'},
+
+{id:'E-07',r:11,med:6400,
+ por:'Es la única casa del inventario que describe un ecosistema y no un jardín: mango, limón, mandarina, guayaba, deck, invernadero, sobre 890 m² de lote con 254 m² construidos. Propiedad independiente, no en conjunto. Trae estudio y chimenea. Predial de $5.000.000 anuales, bajo para el sector.',
+ lim:'<strong>El aviso es de septiembre de 2024: veintitrés meses publicado.</strong> Es el candidato más probable a listado fantasma de esta lista, y el primer paso es confirmar que sigue en venta antes de invertir tiempo. La ficha no reporta antigüedad de la construcción.',
+ est:'Estudio declarado, más sala con chimenea. Con invernadero y 636 m² de verde, la ventana con vista a zona verde no es un deseo: es la condición por defecto de la casa.',
+ riesgo:'<span class="chip c-warn">Verde en riesgo</span>. El Esmeraldal figura tanto en el Plan Municipal de Gestión del Riesgo como en la alerta naranja de la OGRE por movimientos en masa. Contrapeso importante: es exactamente el sector donde la comunidad ganó la acción popular fallada por el Tribunal Administrativo de Antioquia el 22 de diciembre de 2021, que ordenó no construir a menos de 30 m de las quebradas y exigir estudios de zonas de recarga de acuíferos antes de licenciar. Ese fallo protege a quien ya está adentro.',
+ margen:'Veintitrés meses en mercado es el argumento de negociación más fuerte del inventario. Si sigue disponible, entre por debajo de su techo sin pudor.'},
+
+{id:'N-06',r:12,med:6930,
+ por:'Es la mejor opción dentro del sector Montessori propiamente dicho, que era uno de sus objetivos explícitos y que resultó ser el sector con menos producto que cumpla el criterio de entorno. Cinco parqueaderos, estrato 6, 345 m² construidos, y la descripción de entorno más detallada de la zona.',
+ lim:'Administración de $1.650.000 mensuales: la más alta de las ocho, y sobre diez años son casi $200M. A $2.390M está en el límite superior absoluto de la banda. Lote de 396 m² con 345 m² construidos deja poco verde propio: el «jardín en dos niveles» es paisajismo, no extensión.',
+ est:'La descripción menciona múltiples zonas sociales y jacuzzi en la principal, pero no un estudio. En 345 m² sobre lote de 396 m² el espacio de trabajo sale de una alcoba, y la ventana daría al jardín paisajístico, no a ladera.',
+ riesgo:'Indeterminado. La contradicción de esta propiedad es que el «entorno silencioso y verde» que vende es el propio jardín, no el paisaje: el sector Montessori está consolidado y rodeado de unidades cerradas. Es la que menos depende de que la ladera vecina siga libre, y también la que menos ladera tiene.',
+ margen:'$2.390M contra una mediana sectorial de $6,93M/m² la deja prácticamente en precio de mercado. Century 21 opera con mandato formal; espere poco descuento y negocie mejor sobre la administración pendiente o los muebles.'}
+];
+
+var fEl=document.getElementById('fichas');
+F.forEach(function(f){
+  var d=D.find(function(x){return x.id===f.id;});
+  var pm=d.ppm, med=f.med, hasMed=!!(med&&pm);
+  var ratio=hasMed?pm/med:1;
+  var pct=Math.max(4,Math.min(96,(ratio/1.6)*100));
+  var medpct=Math.max(4,Math.min(96,(1/1.6)*100));
+  var delta=Math.round((ratio-1)*100);
+  var closing=Math.round(d.precio*0.018*10)/10;
+  var el=document.createElement('article');
+  el.className='ficha';
+  el.innerHTML=
+   '<div>'+
+    '<div class="f-head"><span class="f-rank">'+f.r+'</span><h3>'+d.n+'</h3></div>'+
+    '<div class="f-meta"><span>'+d.id+'</span><span>'+d.s+'</span><span><b>'+cop(d.precio)+'</b></span>'+
+      '<span>'+(d.constr?d.constr+' m² constr.':'área n/r')+'</span>'+
+      '<span>'+(d.lote?d.lote.toLocaleString('es-CO')+' m² lote':'lote n/r')+'</span>'+
+      '<span>'+d.hab+' hab · '+d.ban+' baños · '+d.parq+'</span></div>'+
+    '<span class="f-label">Por qué entra</span><p>'+f.por+'</p>'+
+    '<span class="f-label">Qué la limita</span><p>'+f.lim+'</p>'+
+    '<span class="f-label">Espacio para estudio y su vista</span><p>'+f.est+'</p>'+
+    '<span class="f-label">Riesgo del entorno natural</span><p>'+f.riesgo+'</p>'+
+   '</div>'+
+   '<aside class="f-side">'+
+    '<span class="f-label">Evidencia del entorno (criterio '+d.crit+')</span>'+
+    '<p class="quote">'+d.ev.replace(/<\/?strong>/g,'')+'</p>'+
+    '<dl class="kv" style="margin-top:16px">'+
+      '<dt>Precio/m²</dt><dd>$'+(pm?pm.toLocaleString('es-CO'):'—')+'k</dd>'+
+      '<dt>Mediana sector</dt><dd>'+(hasMed?'$'+med.toLocaleString('es-CO')+'k':'sin barrido')+'</dd>'+
+      (d.lote?'<dt>Precio/m² lote</dt><dd>$'+Math.round(d.precio*1000000/d.lote).toLocaleString('es-CO')+'</dd>':'')+
+      '<dt>Administración</dt><dd>'+(d.admin==null?'no reportado':(d.admin===0?'sin cuota':'$'+d.admin.toLocaleString('es-CO')+'.000/mes'))+'</dd>'+
+      '<dt>Cierre 1,8%</dt><dd>≈ $'+closing.toLocaleString('es-CO')+'M</dd>'+
+      '<dt>Publicado</dt><dd class="txt">'+(d.fecha?d.fecha+' <span style="color:var(--muted)">('+edadTxt(d.dias)+')</span>':'no reportado')+'</dd>'+
+      '<dt>Contacto</dt><dd class="txt">'+d.ct+'</dd>'+
+    '</dl>'+
+    '<div class="gauge">'+
+      (hasMed?'<div class="gauge-row"><span>vs. mediana del sector</span><span style="color:'+(delta>0?'var(--warn)':'var(--ok)')+'">'+(delta>0?'+':'')+delta+'%</span></div>'+
+      '<div class="gauge-bar"><div class="gauge-fill'+(delta>0?' over':'')+'" style="width:'+pct+'%"></div><div class="gauge-mark" style="left:'+medpct+'%"></div></div>':'')+
+      '<div class="gauge-row" style="margin:6px 0 0"><span>Margen observado</span></div>'+
+      '<p style="font-size:12.5px;color:var(--muted);margin:2px 0 0;font-family:var(--serif)">'+f.margen+'</p>'+
+    '</div>'+
+    '<p style="margin-top:15px"><a class="ver" style="font-size:12.5px;padding:6px 12px" href="'+d.u+'" target="_blank" rel="noopener">Ver aviso en '+d.f.split(' ')[0]+' ↗</a></p>'+
+   '</aside>';
+  fEl.appendChild(el);
+});
+
+/* ---------------- chart ---------------- */
+var SEC=[
+ {n:'Loma de las Brujas',q:'n = 8 fichas',lo:4610,med:8000,hi:8850},
+ {n:'Loma Benedictinos / Zúñiga',q:'n = 11 fichas',lo:4500,med:7200,hi:10220},
+ {n:'Montessori / L. el Atravesado',q:'n = 11 fichas',lo:5880,med:6930,hi:9240},
+ {n:'Loma del Escobero',q:'n = 23 fichas',lo:4860,med:6710,hi:10130},
+ {n:'Cumbres',q:'n = 7 fichas',lo:4960,med:6720,hi:7630},
+ {n:'Loma del Esmeraldal',q:'n = 18 fichas',lo:4150,med:6400,hi:8750},
+ {n:'Las Antillas',q:'n = 6 fichas',lo:5140,med:6000,hi:7670},
+ {n:'El Salado',q:'n = 4 fichas',lo:5310,med:5950,hi:7420},
+ {n:'Alto de Misael',q:'n = 4 fichas',lo:4150,med:5600,hi:11110},
+ {n:'Loma del Chocho',q:'n = 20 fichas',lo:3900,med:5400,hi:6600}
+];
+var MAX=11500,MIN=3500;
+function px(v){return ((v-MIN)/(MAX-MIN))*100;}
+var ch=document.getElementById('chart'),h='';
+SEC.forEach(function(s){
+  h+='<div class="crow">'+
+    '<div class="cname">'+s.n+'<small>'+s.q+'</small></div>'+
+    '<div class="ctrack"><div class="cband" style="left:'+px(s.lo)+'%;width:'+(px(s.hi)-px(s.lo))+'%"></div>'+
+      '<div class="cmed" style="left:'+px(s.med)+'%"></div></div>'+
+    '<div class="cval">$'+(s.med/1000).toFixed(1)+'M<small>por m² constr.</small></div>'+
+  '</div>';
+});
+h+='<div class="caxis"><div></div><div class="ticks"><span>$3,5M</span><span>$5,5M</span><span>$7,5M</span><span>$9,5M</span><span>$11,5M</span></div><div class="cval" style="font-size:10.5px;color:var(--faint);text-align:right">barra = mín–máx<br>línea = mediana</div></div>';
+ch.innerHTML=h;
+
+/* ---------------- brokers ---------------- */
+var B=[
+{n:'Campo Urbano Inmobiliaria',t:'324 384 8888 · 604 557 7750',d:'Paula Andrea Aguirre Ramírez. Sitio propio devuelve 403; el inventario se ve a través de sus fichas en Espacio Urbano.',e:'Escobero $2.400M lote 992 m² · Escobero $2.000M lote 2.774 m²',r:'$2.000M – $2.400M · lote grande'},
+{n:'Prointegral Inmobiliaria y Constructora',t:'604 448 5859 · 304 486 5460',d:'callcenter@prointegral.com · prointegral.com. Perfil verificado en Fincaraíz. El corredor con más inventario propio en el corredor completo.',e:'Escobero $2.330M lote 1.156 m² · Chocho $1.620M lote 800 m² · Loma del Barro $1.950M',r:'$1.620M – $2.330M'},
+{n:'VR Propiedades',t:'312 765 4910',d:'Sin sitio propio localizado. Publica exclusivamente en Espacio Urbano.',e:'Escobero $1.870M lote 1.020 m² · Escobero $1.520M lote 800 m²',r:'$1.520M – $1.870M · lote grande'},
+{n:'Globals Inmobiliaria',t:'302 100 9238',d:'Sin sitio propio localizado.',e:'Escobero $2.000M lote 1.450 m², sin administración',r:'$2.000M'},
+{n:'KSTA Inmobiliaria',t:'302 322 4937',d:'Sin sitio propio; perfil en luxuryestate.com. Cubre los tres sectores núcleo.',e:'Escobero $1.950M · Montessori $2.300M · Chocho $1.400M',r:'$1.400M – $2.300M'},
+{n:'Farhana Inmobiliaria',t:'no publicado — vía formulario Fincaraíz',d:'El corredor detrás del Conjunto San Francisco y de El Escobero «bajito». Tiene el mejor producto de esta lista y ningún teléfono público.',e:'Conjunto San Francisco $1.780M · Escobero bajito $2.350M · Esmeraldal $2.290M',r:'$1.780M – $2.350M'},
+{n:'Real Living',t:'300 870 4698 (tel. y WhatsApp)',d:'info@realliving.com.co · realliving.com.co · @realliving.co. Sede en Envigado, ficha propia con datos completos.',e:'Casa para estrenar Escobero $1.830M, lote 921 m²',r:'$730M – $2.500M'},
+{n:'Sisters & Real Estate',t:'321 508 5219 (WhatsApp)',d:'info@sistersandrealestate.com · @sistersandrealestate. Segmento lujo; opera desde 2021 en el corredor sur.',e:'Escobero $3.980M, 404 m² / lote 2.000 m² (may 2026) · Cedro Azul, L. de las Brujas $1.350M',r:'$1.350M – $8.500M'},
+{n:'Cortés Propiedad Raíz',t:'301 632 7305 (WhatsApp)',d:'cortespropiedadraiz@gmail.com · cortespropiedadraiz.com.co',e:'Casa Escobero–San Luis $2.170M',r:'$2.170M'},
+{n:'Grupo Santamaría',t:'604 448 4824 · 304 266 5540',d:'teayudo@gsantamaria.com · gsantamaria.com. Siete inmuebles activos solo en Loma del Esmeraldal.',e:'Casa 5 alcobas / 258 m² en Loma del Esmeraldal $1.500M',r:'$870M – $1.650M'},
+{n:'Londoño Gómez',t:'604 311 1616',d:'info@londonogomez.com · londonogomez.com. Sus URLs de ficha individual redirigen al listado general: hay que pedir el detalle por teléfono.',e:'Casa Loma El Chocho $3.900M / 517 m² · dos casas independientes Envigado $2.700M',r:'$2.700M – $3.900M'},
+{n:'Blog Inmobiliaria',t:'320 764 7422 · 604 444 6473',d:'Sin sitio propio. Correo enmascarado en la ficha, no verificable.',e:'Chocho $1.500M, 5+1 alcobas, lote 850 m², sin administración',r:'$1.500M'}
+];
+var bEl=document.getElementById('brokers');
+B.forEach(function(b){
+  var el=document.createElement('div');el.className='bk';
+  el.innerHTML='<h4>'+b.n+'</h4><span class="tel">'+b.t+'</span>'+
+   '<div class="det">'+b.d+'</div>'+
+   '<div class="ev"><strong style="color:var(--muted)">Evidencia:</strong> '+b.e+'<br><span class="mono" style="font-size:11px">'+b.r+'</span></div>';
+  bEl.appendChild(el);
+});
+
+/* ---------------- alerts ---------------- */
+var A=[
+{s:'high',t:'El POT de Envigado está en limbo jurídico y eso cambia el cálculo de toda la lista',
+ b:'<p>El Decreto 600 de diciembre de 2019 —adoptado por decreto del alcalde porque el Concejo dejó vencer el plazo de 90 días— fue <strong>suspendido provisionalmente por el Juzgado 28 Administrativo Oral de Medellín en noviembre de 2021</strong>, en acción popular que alegó que faltó cabildo abierto. La Alcaldía apeló. <strong>No hay ninguna fuente pública sobre el desenlace de esa apelación.</strong> La Curaduría Segunda de Envigado lista hoy ambas normas —Decreto 600 y Acuerdo 010 de 2011— sin decir cuál rige.</p>'+
+ '<p>Por qué importa: el Decreto 600 <strong>reducía la densidad máxima en ladera de 180 a 70 viviendas por hectárea</strong> y ampliaba el suelo de protección de 3.166 a 5.061 hectáreas. Si está suspendido, rige el Acuerdo 010 de 2011 y la ladera admite más del doble de densidad. La evidencia de aplicación práctica más reciente que encontré es de octubre de 2025: en la polémica del proyecto Cuantum la prensa reporta que se ajusta «al POT de 2011». <strong>Presuma desarrollable todo terreno vecino que no esté declarado.</strong></p>'+
+ '<p class="src">Fuentes: El Colombiano · Centro de Historia de Envigado · Curaduría Segunda de Envigado · Ciudad Sur (oct 2025)</p>'},
+
+{s:'high',t:'Artesia: 240 apartamentos en 8 torres, sobre la Loma del Escobero y a metros del Colegio Cumbres',
+ b:'<p>Constructora Capital desarrolla <strong>Artesia</strong> en <strong>Cl 36D Sur #27-151</strong>, coordenadas 6.162837, -75.571411: ocho torres de cuatro pisos más terraza, seis a ocho apartamentos por piso, <strong>240 unidades</strong>. El Colegio Cumbres está en Cl 36 Sur #27B-4 — es decir, prácticamente el mismo cruce. La misma constructora tiene además <strong>Ártiko</strong> sobre la Loma del Escobero.</p>'+
+ '<p>El material comercial del proyecto vende exactamente lo que usted busca: «rodeado de naturaleza», «espectacular vista hacia las zonas verdes circundantes», «lote privilegiado con terreno plano». Eso significa que <strong>el verde circundante que hoy se ve desde ese polígono ya está siendo ocupado</strong>. Cualquier propiedad cuyo criterio de entorno dependa de una vista hacia ese sector debe verificarse contra estas coordenadas antes de ofertar.</p>'+
+ '<p class="src">Fuente: constructoracapital.com/proyecto/…/loma-del-escobero/234/artesia · Ciencuadras</p>'},
+
+{s:'high',t:'Verde Olivo y Verde Silvestre están construyendo en Camino Verde',
+ b:'<p>Constructora Capital Bogotá SAS desarrolla <strong>Verde Olivo</strong> (en construcción, entrega 2026) y <strong>Verde Silvestre</strong> (sobre planos) en Camino Verde. Es el sector que aparece en su lista de adyacencias y donde el barrido encontró casas de 4–5 habitaciones entre $680M y $1.050M, es decir, mucho por debajo del presupuesto. Ese precio bajo tiene explicación, y parte de ella es que el sector está en proceso activo de densificación.</p>'+
+ '<p class="src">Fuente: Ciencuadras · Constructora Capital</p>'},
+
+{s:'med',t:'Once de los sectores buscados figuran en los inventarios municipales de riesgo por movimiento en masa',
+ b:'<p>El Plan Municipal de Gestión del Riesgo de Envigado clasifica en amenaza o riesgo alto por movimientos en masa, en área urbana: <strong>Alto de Misael, El Esmeraldal, La Sebastiana, Las Flores, Loma del Barro, Las Antillas</strong>; en área rural: <strong>El Vallano</strong> y, en menor grado, la vereda <strong>El Escobero</strong>. La alerta naranja de la Oficina de Gestión del Riesgo cubrió 22 barrios e incluyó además <strong>Loma el Atravesado, Zúñiga, Loma de Las Brujas, La Pradera, El Chocho y La Paz</strong>, con riesgo de deslizamientos y represamientos «especialmente en el costado oriental».</p>'+
+ '<p>En marzo de 2025 el municipio ejecutaba $4.200 millones en obras de mitigación —muros de contención, gaviones, anclajes de talud— en <strong>Loma de El Escobero, quebrada La Honda, quebrada Las Brujas</strong>, vereda Pantanillo y la carrera 26A. Que haya obra es buena noticia; que haga falta, es el dato. Esto no descalifica ningún predio: significa que el estudio de suelos es obligatorio, no opcional.</p>'+
+ '<p class="src">Fuentes: Plan Municipal de Gestión del Riesgo de Envigado (2012, act. 2016) · OGRE vía Gente · Vivir en El Poblado (mar 2025)</p>'},
+
+{s:'med',t:'Retiro de quebrada: 30 m, con un fallo judicial ganado precisamente en El Esmeraldal',
+ b:'<p>El Acuerdo 010 de 2011 fija retiros de <strong>no menos de 20 m</strong> a la red hídrica en suelo urbano, <strong>30 m a la quebrada La Ayurá</strong>, <strong>30 m</strong> en suelo rural y <strong>100 m a nacimientos y humedales</strong> (arts. 34 y 37). El art. 29 los declara suelo de protección y el art. 33 prohíbe construir en ellos. <strong>Un predio con retiro de quebrada al frente tiene la única franja de verde realmente garantizada por norma que existe en esta lista.</strong></p>'+
+ '<p>Refuerzo judicial: el <strong>Tribunal Administrativo de Antioquia falló el 22 de diciembre de 2021</strong> una acción popular interpuesta en 2014 por la comunidad de la loma de El Esmeraldal, ordenando no construir a menos de 30 m de las quebradas y exigir estudios técnicos detallados en zonas de recarga de acuíferos antes de licenciar. Cuencas críticas identificadas por la OGRE: La Ayurá, La Mina, La Cien Pesos y Las Palmas; aparecen además en documentos de riesgo y obra La Sebastiana, La Zúñiga, El Salado, La Honda y Las Brujas.</p>'+
+ '<p><strong>Acción concreta:</strong> pregunte por la quebrada más cercana a cada predio y pida el plano de retiros. Es el único camino para convertir un «indeterminado» en un «protegido».</p>'+
+ '<p class="src">Fuentes: Acuerdo 010 de 2011, arts. 29, 31, 33, 34, 36, 37 · Vivir en El Poblado</p>'},
+
+{s:'med',t:'Tres avisos de «Loma del Escobero» pueden estar en El Retiro, no en Envigado',
+ b:'<p>La vía del Escobero cruza al municipio de El Retiro y los portales no distinguen. Un aviso (Fincaraíz 194139255, $2.350M, 480 m²) tiene ficha de Envigado y descripción que dice literalmente <em>«VENTA CASA EL RETIRO LOMA DEL ESCOBERO»</em>. La propiedad E-01 de esta lista cita como vecina el <strong>Aula Ambiental Reserva San Sebastián–La Castellana, que está en El Retiro</strong>. Varias de las casas campestres con lote de 1.000 m²+ que aparecen bajo «Loma del Escobero» pueden estar del otro lado del límite municipal.</p>'+
+ '<p>Cambia POT, impuesto predial, colegios de referencia y trayecto diario. <strong>El certificado de tradición y libertad dice el municipio; el aviso no.</strong></p>'},
+
+{s:'med',t:'Veintiocho avisos llevan más de seis meses publicados y nueve son de 2021–2022',
+ b:'<p>De las 93 fichas verificadas, nueve tienen fecha de publicación entre octubre de 2021 y mayo de 2022 y siguen activas: Loma de las Brujas $940M (oct 2021), Loma del Chocho $920M (oct 2021), Loma del Escobero $1.200M (mar 2022), Alto de Misael casa-lote $2.000M (mar 2022), Alto de Misael $970M (jun 2022), Benedictinos $2.400M (feb 2022), Loma del Chocho $1.750M (may 2022). Otras 19 superan los seis meses, incluida <strong>E-07 de esta lista, con 23 meses</strong>.</p>'+
+ '<p>Un aviso de cuatro años en un portal de pago no es oferta viva: es inventario que nadie despublicó. Trátelos como no verificables. En sentido contrario, un aviso viejo que <em>sí</em> sigue vigente es el mejor escenario de negociación que existe.</p>'},
+
+{s:'med',t:'Mandatos abiertos y precios contradictorios en el mismo inmueble',
+ b:'<p>Una casa de 204 m² en Loma del Chocho, con la misma administración de $1.110.000, aparece a <strong>$1.120.000.000 (Inmobiliaria Martínez) y a $1.100.000.000 (Polarca)</strong>. Una casa de 386 m² aparece como Alto de Misael a $1.600M (BEMSA) y como Loma del Esmeraldal al mismo precio (Margenia). La casa campestre de lote 1.020 m² del Escobero está publicada por <strong>tres</strong> corredores. Y en Altos de Zúñiga el listado mostraba $2.150M mientras la ficha de detalle decía $2.180M.</p>'+
+ '<p>Mandato abierto significa que ningún corredor tiene exclusividad y todos compiten por la comisión. <strong>Negocie con dos de ellos por separado y no revele que sabe que es el mismo inmueble.</strong> También significa que ningún corredor tiene autoridad real sobre el precio: la conversación que importa es con el propietario.</p>'},
+
+{s:'high',t:'RHBRaíz republicó su inventario entero el 12 de septiembre: la fecha del portal miente',
+ b:'<p>El barrido de recencia de hoy devolvió decenas de avisos de RHBRaíz con código Fincaraíz <span class="mono">1942xxxxx</span> y fecha de ingreso <strong>12 de septiembre de 2026</strong> — todos el mismo día. Pero sus códigos internos delatan la edad real: <span class="mono">RHBR-17874</span>, <span class="mono">RHBR-18137</span>, <span class="mono">RHBR-18237</span> conviven con <span class="mono">RHBR-30134</span> en la misma tanda. Un inventario que se numeró a lo largo de años no nació ayer.</p>'+
+ '<p><strong>Consecuencia práctica: en Fincaraíz, «publicado hace 1 día» no significa nuevo al mercado, significa recién resubido.</strong> Ordenar por «Más Recientes» (<span class="mono">?ordenListado=3</span>) premia al corredor que republica, no a la oferta fresca, y la primera página de Escobero y de Chocho hoy es casi toda de un solo corredor. El filtro de antigüedad de esta tabla es real y usa la fecha que publica el portal, pero <strong>úselo junto al código interno del corredor</strong>: cuando ambos discrepan, gana el código.</p>'+
+ '<p>Al corredor pregúntele las dos cosas por separado: <em>hace cuánto tiene el mandato</em> y <em>hace cuánto está publicado el aviso</em>. La primera es la que negocia.</p>'},
+
+{s:'med',t:'Veintiuno de los 52 predios siguen sin fecha verificable',
+ b:'<p>La fecha sí existe en Fincaraíz, pero <strong>solo en la ficha de detalle</strong>, en una frase al pie: «fue ingresada por X el D de M de AAAA». El listado no la muestra, que es por lo que el barrido anterior la dio por perdida. Hoy se recuperó abriendo las fichas una por una, y las dos recomendaciones principales quedaron datadas con precisión.</p>'+
+ '<p>Siguen sin fecha <strong>veintiún predios</strong>: los doce de Espacio Urbano, que no la publica en ninguna parte, las cuatro del canal WhatsApp —donde lo único que se conoce es la fecha del reenvío, no la del aviso— y cinco de Fincaraíz cuya ficha individual no se abrió. Quedan agrupados bajo <span class="chip c-plain">sin fecha</span> en el filtro y <strong>no se deben leer como recientes</strong>.</p>'+
+ '<p>Primera pregunta de cada llamada, antes que el precio: hace cuánto está publicada y si ha bajado desde entonces. Define si está negociando con un vendedor cansado o con uno que acaba de salir.</p>'},
+
+{s:'info',t:'Discrepancias internas en siete avisos: habitaciones y áreas que no cuadran',
+ b:'<p>Casos verificados: Escobero $1.880M dice 4 habitaciones en la ficha y 5 en la descripción; La Sebastiana $1.850M dice 4 en ficha y 3 en descripción; Alto de Misael $1.600M dice 5 y 4; Cumbres $1.200M dice 4 hab / 89 m² en ficha y 3 hab / 189 m² en descripción; el Escobero de lote 1.001 m² trae construido y lote invertidos; Loma del Chocho $1.500M dice 850 m² en ficha y 820 m² en descripción; Loma del Barro reporta 1.216 m² construidos y 245 m² privados.</p>'+
+ '<p>En muchas fichas «área construida» y «área de lote» traen el mismo número: eso no significa que el lote sea de ese tamaño, significa que el anunciante no diligenció el campo. Todas las cifras de lote inferidas en la tabla están marcadas <span class="mono" style="color:var(--faint)">inf.</span></p>'},
+
+{s:'info',t:'La cartografía que definiría «verde protegido» no está publicada',
+ b:'<p>Tres capas de información necesarias para clasificar un predio con certeza no existen en línea: <strong>(1)</strong> los estudios básicos de amenaza y riesgo del Decreto 1807 de 2014 con la delimitación de riesgo alto <em>no mitigable</em> —la categoría que hace inedificable un predio—; <strong>(2)</strong> las tablas de densidad por polígono del Acuerdo 010 de 2011, que viven en los planos UF-03, RF-03, RF-04 y RF-05, no en el articulado; <strong>(3)</strong> el registro de licencias expedidas por las curadurías de Envigado en 2024–2026.</p>'+
+ '<p>El portal envigado.gov.co bloqueó todos los intentos de acceso automatizado. El trámite hay que hacerlo en el <strong>Departamento Administrativo de Planeación de Envigado</strong> —es Departamento Administrativo, no Secretaría, y el nombre importa al radicar— pidiendo por escrito el concepto de norma del predio <strong>y exigiendo que indique bajo qué norma se expide</strong>. Contrástelo con lo que responda la curaduría: esa discrepancia es el riesgo central de esta operación.</p>'}
+];
+var aEl=document.getElementById('alerts');
+A.forEach(function(a){
+  var el=document.createElement('div');el.className='al';el.setAttribute('data-sev',a.s);
+  el.innerHTML='<div class="al-stripe"></div><div class="al-body"><h4>'+a.t+'</h4>'+a.b+'</div>';
+  aEl.appendChild(el);
+});
+/* ================= TABLERO COMPARTIDO (2/2) ================= */
+
+/* ---- escritura ---- */
+var pending={};
+function writeState(id,patch){
+  ST=window.ST||ST; RO=window.RO!==undefined?window.RO:RO; MYID=window.MYID||MYID; DBREF=window.DBREF||DBREF;
+  if(RO)return;
+  var cur=ST[id]||{};
+  var next={estado:patch.estado!==undefined?patch.estado:(cur.estado||'nueva'),
+            nota:patch.nota!==undefined?patch.nota:(cur.nota||''),
+            cita:patch.cita!==undefined?patch.cita:(cur.cita||''),
+            by:MYID||'', at:new Date().toISOString()};
+  ST[id]=next; window.ST=ST;
+  if(!DBREF)return;
+  if(pending[id]){queued[id]=true;return;}
+  pending[id]=true;
+  DBREF.collection('estado').doc(id).set(next).catch(function(e){
+    if(e&&e.code==='invalid_argument')setReadOnly();
+  }).then(function(){
+    pending[id]=false;
+    if(queued[id]){queued[id]=false;writeState(id,{});}
+  });
+}
+var queued={};
+var noteTimer={};
+function queueNote(id,txt){
+  ST=window.ST||ST; MYID=window.MYID||MYID;
+  var cur=ST[id]||{estado:'nueva',nota:'',cita:''};
+  ST[id]={estado:cur.estado||'nueva',nota:txt,cita:cur.cita||'',by:MYID||'',at:new Date().toISOString()};
+  window.ST=ST;
+  clearTimeout(noteTimer[id]);
+  noteTimer[id]=setTimeout(function(){writeState(id,{nota:txt});renderCounters();},700);
+}
+function setReadOnly(){
+  RO=true; window.RO=true;
+  var n=document.getElementById('ronote'); if(n)n.style.display='block';
+  render();
+}
+
+/* ---- contadores ---- */
+var boardFilter=null;
+function renderCounters(){
+  ST=window.ST||ST;
+  var n={}; EST.forEach(function(e){n[e.k]=0;});
+  var conNota=0;
+  D.forEach(function(d){
+    var st=ST[d.id]; if(!st)return;
+    if(st.estado&&n[st.estado]!==undefined)n[st.estado]++;
+    if(st.nota)conNota++;
+  });
+  var marcadas=EST.reduce(function(a,e){return a+n[e.k];},0);
+  var h='';
+  EST.forEach(function(e){
+    h+='<button class="bstat" data-bf="'+e.k+'" aria-pressed="'+(boardFilter===e.k)+'"><b>'+n[e.k]+'</b><span>'+e.l+'</span></button>';
+  });
+  h+='<div class="bstat" style="cursor:default"><b>'+(D.length-marcadas)+'</b><span>Sin marcar</span></div>';
+  h+='<div class="bstat" style="cursor:default"><b>'+conNota+'</b><span>Con comentario</span></div>';
+  document.getElementById('bstats').innerHTML=h;
+}
+
+/* ---- sincronizar los campos de la tabla sin reconstruirla ---- */
+function applyState(){
+  ST=window.ST||ST;
+  var act=document.activeElement;
+  D.forEach(function(d){
+    var st=ST[d.id]||{};
+    var sel=document.querySelector('[data-estsel="'+d.id+'"]');
+    if(sel&&sel!==act)sel.value=st.estado||'nueva';
+    var cit=document.querySelector('[data-cita="'+d.id+'"]');
+    if(cit&&cit!==act)cit.value=st.cita||'';
+    var ta=document.querySelector('[data-note="'+d.id+'"]');
+    if(ta&&ta!==act&&ta.value!==(st.nota||''))ta.value=st.nota||'';
+  });
+  paintWho();
+}
+var profCache={};
+function paintWho(){
+  ST=window.ST||ST;
+  D.forEach(function(d){
+    var el=document.querySelector('[data-who="'+d.id+'"]'); if(!el)return;
+    var st=ST[d.id];
+    if(!st||(!st.nota&&(!st.estado||st.estado==='nueva')&&!st.cita)){el.textContent='';return;}
+    var f=''; try{f=new Date(st.at).toLocaleDateString('es-CO',{day:'numeric',month:'short'});}catch(_){}
+    el.textContent=(st.byName||'Alguien')+(f?' · '+f:'');
+  });
+  return;
+  var ids=[];
+  D.forEach(function(d){var st=ST[d.id];if(st&&st.by&&ids.indexOf(st.by)<0)ids.push(st.by);});
+  if(!ids.length){
+    document.querySelectorAll('[data-who]').forEach(function(el){el.textContent='';});
+    return;
+  }
+  USER.profiles(ids).then(function(ps){
+    D.forEach(function(d){
+      var el=document.querySelector('[data-who="'+d.id+'"]'); if(!el)return;
+      var st=ST[d.id];
+      if(!st||!st.by||(!st.nota&&(!st.estado||st.estado==='nueva')&&!st.cita)){el.textContent='';return;}
+      var nm=(ps[st.by]&&ps[st.by].name)||'Alguien';
+      var f=''; try{f=new Date(st.at).toLocaleDateString('es-CO',{day:'numeric',month:'short'});}catch(_){}
+      el.textContent=nm.split(' ')[0]+(f?' · '+f:'');
+    });
+  });
+}
+
+/* ---- eventos ---- */
+document.addEventListener('change',function(ev){
+  var t=ev.target;
+  if(t.matches&&t.matches('[data-estsel]')){
+    writeState(t.getAttribute('data-estsel'),{estado:t.value});
+    renderCounters();
+    if(boardFilter)render(); else paintWho();
+  }else if(t.matches&&t.matches('[data-cita]')){
+    var id=t.getAttribute('data-cita');
+    var cur=ST[id]||{};
+    var nuevoEstado=t.value?'cita':(cur.estado||'nueva');
+    writeState(id,{cita:t.value,estado:nuevoEstado});
+    renderCounters();
+    var sel=document.querySelector('[data-estsel="'+id+'"]'); if(sel)sel.value=nuevoEstado;
+    if(boardFilter)render(); else paintWho();
+  }
+});
+document.addEventListener('input',function(ev){
+  var t=ev.target;
+  if(t.matches&&t.matches('[data-note]'))queueNote(t.getAttribute('data-note'),t.value);
+});
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest&&ev.target.closest('[data-bf]');
+  if(!b)return;
+  boardFilter=(boardFilter===b.getAttribute('data-bf'))?null:b.getAttribute('data-bf');
+  renderCounters(); render();
+  document.getElementById('tabla').scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+renderCounters();
+
+/* si Firebase no responde en 10 s, dejarlo explícito en vez de fingir que guarda */
+setTimeout(function(){
+  if(window.__FB_OK)return;
+  var e=document.getElementById('authstate');
+  if(e&&/Conectando/.test(e.textContent))e.textContent='No se pudo conectar con Firebase. La página queda en solo lectura.';
+  setReadOnly();
+},10000);
+
+/* exponer al módulo de Firebase */
+window.ST=ST; window.RO=RO; window.MYID=MYID; window.render=render;
+window.renderCounters=renderCounters; window.applyState=applyState; window.setReadOnly=setReadOnly;
+window.getBoardFilter=function(){return boardFilter;};
+
+/* ---- conexión: Firebase ---- */
+/* La configuración y la lista de editores viven en config.js, al lado de este archivo. */
+
+</script>
+<script src="config.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, doc, setDoc, onSnapshot }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const cfg = window.FIREBASE_CONFIG;
+const estado = document.getElementById('authstate');
+const btnIn  = document.getElementById('btnin');
+const btnOut = document.getElementById('btnout');
+
+if (!cfg || String(cfg.apiKey).indexOf('PEGAR_AQUI') === 0) {
+  window.__FB_OK = true;
+  estado.textContent = 'Falta pegar la configuración de Firebase en el archivo.';
+  window.setReadOnly && window.setReadOnly();
+} else {
+  window.__FB_OK = true;
+  const app = initializeApp(cfg);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const COL = collection(db, 'estado');
+
+  btnIn.onclick = () => {
+    const prov = new GoogleAuthProvider();
+    signInWithPopup(auth, prov).catch(e => {
+      // en el celular el popup suele bloquearse: se reintenta con redirección
+      if (['auth/popup-blocked','auth/popup-closed-by-user','auth/operation-not-supported-in-this-environment','auth/cancelled-popup-request'].indexOf(e.code) >= 0) {
+        signInWithRedirect(auth, prov);
+      } else {
+        estado.textContent = 'No se pudo entrar: ' + e.code;
+      }
+    });
+  };
+  btnOut.onclick = () => signOut(auth);
+
+  let unsub = null;
+
+  onAuthStateChanged(auth, user => {
+    if (unsub) { unsub(); unsub = null; }
+
+    if (!user) {
+      estado.textContent = 'Entra con tu cuenta de Google para marcar y comentar.';
+      btnIn.style.display = ''; btnOut.style.display = 'none';
+      window.setReadOnly && window.setReadOnly();
+      window.render && window.render();
+      return;
+    }
+
+    const puedeEditar = (window.EDITORES || []).indexOf((user.email || '').toLowerCase()) >= 0;
+    estado.textContent = (user.displayName || user.email) +
+      (puedeEditar ? ' · puedes editar' : ' · solo lectura (tu correo no está en la lista)');
+    btnIn.style.display = 'none'; btnOut.style.display = '';
+
+    // identidad para la columna "quién editó"
+    window.MYID = user.uid;
+    window.MYNAME = (user.displayName || user.email || '').split(' ')[0];
+
+    if (!puedeEditar) {
+      window.setReadOnly && window.setReadOnly();
+    } else {
+      window.RO = false;
+      document.getElementById('ronote').style.display = 'none';
+    }
+    window.render && window.render();   // repinta la tabla con los campos ya habilitados
+
+    // escritura
+    window.DBREF = {
+      collection: () => ({
+        doc: (id) => ({
+          set: (d) => setDoc(doc(COL, id), Object.assign({}, d, { byName: window.MYNAME || '' }))
+        })
+      })
+    };
+
+    // lectura en vivo
+    let sembrado = false;
+    unsub = onSnapshot(COL, snap => {
+      // primera vez con la base vacía: traer lo que ya estaba decidido
+      if (!sembrado && puedeEditar && snap.empty) {
+        sembrado = true;
+        const hoy = new Date().toISOString();
+        setDoc(doc(COL, 'W-01'), {
+          estado: 'descartada', cita: '2026-09-15',
+          nota: 'Mayra la visitó el 15-sep. Punto de encuentro: Urbanización Casa de Campo, Cl. 6 #17-105, La Calera, El Poblado. Su veredicto: «No, muy cara y malita». Identificada por sector: es el único predio del expediente en La Calera. Si la que visitó fue otra, cambiar aquí.',
+          at: hoy, by: '', byName: 'Mayra'
+        });
+        setDoc(doc(COL, 'W-05'), {
+          estado: 'nueva', cita: '',
+          nota: 'Mayra, 16-sep: «carísima por ese precio». A favor: 4 alcobas con baño, estudio, family room, remodelada 2020, predial bajo. En contra: solo 2 parqueaderos, admón $1.950.000, y el jardín es de patio (lote 330 m² con 290 construidos), no lindero verde.',
+          at: hoy, by: '', byName: 'Mayra'
+        });
+      }
+      const next = {};
+      snap.forEach(d => { next[d.id] = d.data(); });
+      const act = document.activeElement;
+      const fid = act && act.getAttribute && act.getAttribute('data-note');
+      if (fid && window.ST[fid]) next[fid] = window.ST[fid];   // no pisar lo que se escribe
+      window.ST = next;
+      window.renderCounters();
+      window.getBoardFilter && window.getBoardFilter() ? window.render() : window.applyState();
+    }, err => { estado.textContent = 'Error de lectura: ' + err.code; window.setReadOnly && window.setReadOnly(); });
+  });
+}
+</script>
+</body>
+</html>

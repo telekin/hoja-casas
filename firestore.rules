@@ -1,0 +1,30 @@
+rules_version = '2';
+
+// Reglas de Firestore para la hoja de control de casas.
+// Pegar en: Firebase console > Firestore Database > Reglas > Publicar
+//
+// Lectura y escritura SOLO para los dos correos de la lista. Aunque alguien
+// consiga el link de la pagina, sin estar en esta lista no puede leer ni
+// escribir: el bloqueo es del servidor, no de la pagina.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function esEditor() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email.lower() in [
+             'juan.moronv@gmail.com',
+             'mairaumbarila@gmail.com'
+           ];
+    }
+
+    match /estado/{predio} {
+      allow read, write: if esEditor();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
