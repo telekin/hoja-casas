@@ -1,19 +1,19 @@
-/* ========================================================================
-   CONFIGURACIÓN — este es el único archivo que hay que editar.
-   ======================================================================== */
-
-/* 1) Pega aquí el bloque que te muestra Firebase al registrar la app web.   */
 window.FIREBASE_CONFIG = {
-  apiKey:            "PEGAR",
-  authDomain:        "PEGAR.firebaseapp.com",
-  projectId:         "PEGAR",
-  storageBucket:     "PEGAR.firebasestorage.app",
-  messagingSenderId: "PEGAR",
-  appId:             "PEGAR"
+
+  apiKey: "AIzaSyBJ4AXgcHB4TS2T48dKW80DY6H98N_pJg4",
+
+  authDomain: "hoja-casas.firebaseapp.com",
+
+  projectId: "hoja-casas",
+
+  storageBucket: "hoja-casas.firebasestorage.app",
+
+  messagingSenderId: "692839847817",
+
+  appId: "1:692839847817:web:3e8263eb9affb7f6ff3358"
+
 };
 
-/* 2) Los correos de Google que pueden marcar y comentar.
-      Cualquier otro que entre ve la página, pero en solo lectura.           */
 window.EDITORES = [
   "juan.moronv@gmail.com",
   "mairaumbarila@gmail.com"
